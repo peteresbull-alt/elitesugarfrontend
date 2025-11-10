@@ -61,18 +61,11 @@ export default function BottomTabNavigation() {
                 {item.label}
               </span>
               {/* Notification badge for Chat */}
-              {item.id === "notifications" && (
-                <span
-                  className="absolute top-1 right-2 w-5 h-5 rounded-full text-white text-xs flex items-center justify-center font-bold"
-                  style={{ backgroundColor: "#E94057", fontSize: "10px" }}
-                >
-                  3
-                </span>
-              )}
+              
             </button>
           );
         })}
       </div>
-    </nav>
+    </nav>  
   );
 }
