@@ -5,50 +5,50 @@ import { BadgeCheck } from "lucide-react";
 export default function MarqueeSection() {
   const profiles = [
     {
-      name: "Sophia Laurent",
-      age: 47,
+      name: "Nancy",
+      age: 46,
       image:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=600&fit=crop",
-      title: "Luxury Brand Owner",
+        "https://res.cloudinary.com/daf9tr3lf/image/upload/v1762789256/people_photos/yxvqw3d4yfoepdhffpkq.jpg",
+      title: "Pharmaceutical Distributor",
       verified: true,
     },
     {
-      name: "Isabella Chen",
+      name: "Deborah",
       age: 52,
       image:
-        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=600&fit=crop",
+        "https://res.cloudinary.com/daf9tr3lf/image/upload/v1762789314/people_photos/zb605gvu2ivro4sz304j.jpg",
       title: "Global Investor",
       verified: true,
     },
     {
-      name: "Charlotte Rose",
+      name: "Elizabeth",
       age: 58,
       image:
-        "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=600&fit=crop",
-      title: "Art Curator",
+        "https://res.cloudinary.com/daf9tr3lf/image/upload/v1762789401/people_photos/cofvd8f54lb26mzimait.jpg",
+      title: "Bachelor of Hospitality",
       verified: true,
     },
     {
-      name: "Amelia Foster",
-      age: 49,
+      name: "Karen",
+      age: 47,
       image:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=600&fit=crop",
-      title: "High-End Realtor",
+        "https://res.cloudinary.com/daf9tr3lf/image/upload/v1762789460/people_photos/dxid5agvtoxmiutinykq.jpg",
+      title: "Oil Company CEO",
       verified: true,
     },
     {
-      name: "Olivia Grace",
-      age: 56,
+      name: "Helen",
+      age: 44,
       image:
-        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=600&fit=crop",
-      title: "Luxury Travel Designer",
+        "https://res.cloudinary.com/daf9tr3lf/image/upload/v1762789540/people_photos/pfc17g4nax6czqutk89o.jpg",
+      title: "Resort Owner",
       verified: true,
     },
     {
-      name: "Emma Stone",
-      age: 60,
+      name: "Diana",
+      age: 48,
       image:
-        "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=600&fit=crop",
+        "https://res.cloudinary.com/daf9tr3lf/image/upload/v1762797446/people_photos/fa9pq8x25gpay7ag21uu.jpg",
       title: "Philanthropist",
       verified: true,
     },
@@ -143,7 +143,7 @@ function ProfileCard({
               </div>
               <div className="flex gap-2">
                 <div className="px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-xs font-semibold">
-                  SugarÉlite
+                  EliteSugar
                 </div>
                 <div className="px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-xs font-semibold">
                   Verified Luxe

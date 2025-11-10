@@ -327,6 +327,8 @@ export default function ExplorePage() {
           const BadgeIcon = badge.icon;
           const isLocked = !canAccessProfile(person.membership_type);
 
+          // console.log(person);
+
           return (
             <div
               key={person.id}
@@ -393,7 +395,7 @@ export default function ExplorePage() {
                   </div>
                   <div className="flex items-center gap-2 text-sm text-white/80">
                     <MapPin className="w-4 h-4" />
-                    <span>{person.distance}</span>
+                    <span>{person.city_country}</span>
                   </div>
                 </div>
               </div>
@@ -514,35 +516,7 @@ export default function ExplorePage() {
                       <X className="w-6 h-6 text-gray-600" />
                     </button>
 
-                    {/* Badges */}
-                    <div className="absolute top-4 left-4 flex gap-2 z-10">
-                      <div className="bg-white rounded-full px-4 py-2 flex items-center gap-2 shadow-lg">
-                        <BadgeIcon
-                          className="w-5 h-5"
-                          style={{ color: badge.color }}
-                        />
-                        <span
-                          className="font-semibold"
-                          style={{ color: badge.color }}
-                        >
-                          {badge.label}
-                        </span>
-                      </div>
-                      {selectedPerson.verified && (
-                        <div className="bg-white rounded-full px-4 py-2 flex items-center gap-2 shadow-lg">
-                          <Shield
-                            className="w-5 h-5"
-                            style={{ color: "#E94057" }}
-                          />
-                          <span
-                            className="font-semibold"
-                            style={{ color: "#E94057" }}
-                          >
-                            Verified
-                          </span>
-                        </div>
-                      )}
-                    </div>
+                    
                   </div>
 
                   {/* Profile Content */}

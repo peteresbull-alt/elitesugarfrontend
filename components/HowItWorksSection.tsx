@@ -12,7 +12,7 @@ export default function HowItWorksSection() {
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-linear-to-br from-gray-900/95 to-gray-800/95"></div>
         <img
-          src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=1920&h=1080&fit=crop"
+          src="/romans-1.jpg"
           alt="Happy couple"
           className="w-full h-full object-cover opacity-20"
         />

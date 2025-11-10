@@ -6,53 +6,84 @@ import { useState } from "react";
 const profileCards = [
   {
     id: 1,
-    name: "Sophia Laurent",
-    age: 42,
-    title: "CEO, Tech Startup",
-    location: "San Francisco, CA",
+    name: "Shuyi",
+    age: 45,
+    title: "Hospitality Mogul",
+    location: "Singapore",
     image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&h=700&fit=crop",
-    interests: ["Travel", "Wine", "Art"],
+      "https://res.cloudinary.com/daf9tr3lf/image/upload/v1762796139/people_photos/tpdjar5uagek7vsq0utz.jpg",
+    interests: [
+      "Hotels",
+      "Travel",
+      "Fine wine",
+      "Spa resorts",
+      "Luxury lifestyle",
+    ],
   },
+
   {
     id: 2,
-    name: "Isabella Chen",
-    age: 38,
-    title: "Entrepreneur",
-    location: "New York, NY",
+    name: "Mei",
+    age: 52,
+    title: "Retired Entrepreneur",
+    location: "Singapore",
     image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&h=700&fit=crop",
-    interests: ["Fitness", "Reading", "Yoga"],
+      "https://res.cloudinary.com/daf9tr3lf/image/upload/v1762789314/people_photos/zb605gvu2ivro4sz304j.jpg",
+    interests: [
+      "Beauty",
+      "Fashion",
+      "Luxury travel",
+      "Spas",
+      "Designer shopping",
+    ],
   },
   {
     id: 3,
-    name: "Charlotte Rose",
+    name: "Margaret",
     age: 45,
-    title: "Surgeon",
-    location: "Boston, MA",
+    title: "Real Estate Developer",
+    location: "New Zealand",
     image:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&h=700&fit=crop",
-    interests: ["Music", "Cooking", "Hiking"],
+      "https://res.cloudinary.com/daf9tr3lf/image/upload/v1762797463/people_photos/fsem8w65dujrnta2xnsr.jpg",
+    interests: [
+      "Property investment",
+      "Luxury travel",
+      "Wine estates",
+      "Golf",
+      "Spa retreats",
+    ],
   },
   {
     id: 4,
-    name: "Amelia Foster",
-    age: 40,
-    title: "Attorney",
-    location: "Chicago, IL",
+    name: "Linda",
+    age: 49,
+    title: "Pharmaceutical Executive",
+    location: "Singapore",
     image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&h=700&fit=crop",
-    interests: ["Theater", "Golf", "Fashion"],
+      "https://res.cloudinary.com/daf9tr3lf/image/upload/v1762796865/people_photos/fjyalbg8qg12d0y57nmo.jpg",
+    interests: [
+      "Luxury yachts",
+      "Private islands",
+      "Casino",
+      "Spa",
+      "Designer shopping",
+    ],
   },
   {
     id: 5,
-    name: "Olivia Grace",
-    age: 43,
-    title: "Creative Director",
-    location: "Los Angeles, CA",
+    name: "Nancy",
+    age: 46,
+    title: "Pharmaceutical Distributor",
+    location: "New Zealand",
     image:
-      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&h=700&fit=crop",
-    interests: ["Photography", "Design", "Travel"],
+      "https://res.cloudinary.com/daf9tr3lf/image/upload/v1762789254/people_photos/ybqaavv48f1jcbnn9cuc.jpg",
+    interests: [
+      "Business",
+      "Wine estates",
+      "Travel",
+      "Fine dining",
+      "Luxury cars",
+    ],
   },
 ];
 
@@ -93,11 +124,11 @@ export default function HeroSection() {
               className="inline-block w-fit mx-auto px-4 py-2 rounded-full bg-pink-100 text-sm font-semibold animate-fade-in"
               style={{ color: "#E94057" }}
             >
-            Those seeking for Elegant, Rich and Empowered Women
+              Those seeking for Elegant, Rich and Empowered Women
             </div>
 
             <h2 className="text-5xl uppercase sm:text-6xl lg:text-7xl md:text-left font-bold text-gray-900 leading-tight">
-             Find your Sugar
+              Find your Sugar
               <span className="block mt-2 bg-linear-to-br from-pink-600 to-rose-600 bg-clip-text text-transparent">
                 Match
               </span>
@@ -133,7 +164,9 @@ export default function HeroSection() {
                 >
                   50K+
                 </div>
-                <div className="text-sm text-gray-600 mt-1">SugarElite Members</div>
+                <div className="text-sm text-gray-600 mt-1">
+                  SugarElite Members
+                </div>
               </div>
               <div>
                 <div
@@ -222,10 +255,10 @@ function SwipeableCardStack({
           <div className=" p-8 bg-white rounded-3xl shadow-xl">
             <div className="text-6xl mb-4">✨</div>
             <h3 className="text-2xl font-bold text-gray-900 mb-2">
-              You've met everyone!
+              Discover more.
             </h3>
             <p className="text-gray-600">
-              More extraordinary matches are on the way.
+              That's just a tip of the iceberg. Explore more by signing up.
             </p>
           </div>
         </div>
