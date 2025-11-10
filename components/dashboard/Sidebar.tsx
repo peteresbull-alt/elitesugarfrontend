@@ -14,6 +14,7 @@ import {
   Shield,
 } from "lucide-react";
 import { BACKEND_URL } from "@/lib/constants";
+import { useUpgradeModal } from "@/store/useUpgradeModal";
 
 const API_BASE_URL = BACKEND_URL;
 
@@ -38,9 +39,13 @@ export default function Sidebar() {
   const router = useRouter();
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const [loading, setLoading] = useState(true);
+  const [unreadCount, setUnreadCount] = useState(0);
+
+  const { openModal } = useUpgradeModal();
 
   useEffect(() => {
     fetchUserProfile();
+    fetchUnreadNotifications();
   }, []);
 
   const getAuthToken = () => {
@@ -71,11 +76,33 @@ export default function Sidebar() {
     }
   };
 
+  const fetchUnreadNotifications = async () => {
+    try {
+      const token = getAuthToken();
+      if (!token) return;
+
+      const response = await fetch(
+        `${API_BASE_URL}/notifications/unread-count/`,
+        {
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        }
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        setUnreadCount(data.unread_count || 0);
+      }
+    } catch (err) {
+      console.error("Error fetching unread notifications:", err);
+    }
+  };
+
   const handleLogout = async () => {
     try {
       const token = getAuthToken();
 
-      // Call logout endpoint
       await fetch(`${API_BASE_URL}/logout/`, {
         method: "POST",
         headers: {
@@ -85,7 +112,6 @@ export default function Sidebar() {
     } catch (err) {
       console.error("Logout error:", err);
     } finally {
-      // Clear local storage and redirect regardless of API call result
       localStorage.removeItem("authToken");
       localStorage.removeItem("user");
       router.push("/login");
@@ -111,6 +137,7 @@ export default function Sidebar() {
       label: "Notifications",
       icon: MessageCircle,
       path: "/notifications",
+      badge: unreadCount,
     },
     { id: "profile", label: "Profile", icon: User, path: "/profile" },
   ];
@@ -119,7 +146,6 @@ export default function Sidebar() {
     router.push(path);
   };
 
-  // Get profile picture
   const profilePicture =
     userProfile?.photos?.find((p) => p.is_profile_picture)?.image ||
     userProfile?.photos?.[0]?.image ||
@@ -143,7 +169,7 @@ export default function Sidebar() {
           </div>
           <div>
             <h1 className="text-2xl font-bold" style={{ color: "#E94057" }}>
-              Élite
+              EliteSugar
             </h1>
             <p className="text-xs text-gray-500">Premium Dating</p>
           </div>
@@ -178,12 +204,12 @@ export default function Sidebar() {
                     style={isActive ? { color: "#E94057" } : {}}
                   />
                   <span className="font-semibold">{item.label}</span>
-                  {item.id === "notifications" && (
+                  {item.badge && item.badge > 0 && (
                     <span
                       className="ml-auto w-6 h-6 rounded-full text-white text-xs flex items-center justify-center font-bold"
                       style={{ backgroundColor: "#E94057" }}
                     >
-                      3
+                      {item.badge > 99 ? "99+" : item.badge}
                     </span>
                   )}
                 </button>
@@ -210,8 +236,11 @@ export default function Sidebar() {
                 <p className="text-sm text-white/80 mb-4">
                   Unlock exclusive features and unlimited matches
                 </p>
-                <button className="w-full px-4 py-2 bg-white text-purple-600 rounded-lg font-semibold text-sm hover:shadow-lg transition-all">
-                  Learn More
+                <button
+                  onClick={openModal}
+                  className="w-full px-4 py-2 bg-white text-purple-600 rounded-lg font-semibold text-sm hover:shadow-lg transition-all"
+                >
+                  Upgrade
                 </button>
               </div>
             </div>

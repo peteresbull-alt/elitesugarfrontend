@@ -17,7 +17,12 @@ import {
   Award,
   Target,
   Activity,
+  Loader,
 } from "lucide-react";
+import { BACKEND_URL } from "@/lib/constants";
+import { useUpgradeModal } from "@/store/useUpgradeModal";
+
+const API_BASE_URL = BACKEND_URL; // Update with your BACKEND_URL
 
 interface StatCard {
   value: string;
@@ -34,9 +39,24 @@ interface FeatureCard {
   gradient: string;
 }
 
+interface UserProfile {
+  id: number;
+  first_name: string;
+  last_name: string;
+  full_name: string;
+  profile_views: number;
+  matches_count: number;
+  favorites_count: number;
+}
+
 export default function DashboardHome() {
-  const [userName] = useState("Alexander");
+  const [userName, setUserName] = useState("");
   const [currentTime, setCurrentTime] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
+
+
+  const { openModal } = useUpgradeModal();
 
   useEffect(() => {
     const updateGreeting = () => {
@@ -46,26 +66,57 @@ export default function DashboardHome() {
       return "Good Evening";
     };
     setCurrentTime(updateGreeting());
+    fetchUserProfile();
   }, []);
+
+  const getAuthToken = () => {
+    return localStorage.getItem("authToken");
+  };
+
+  const fetchUserProfile = async () => {
+    try {
+      const token = getAuthToken();
+      if (!token) {
+        setLoading(false);
+        return;
+      }
+
+      const response = await fetch(`${API_BASE_URL}/profile/`, {
+        headers: {
+          Authorization: `Token ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setUserProfile(data);
+        setUserName(data.first_name);
+      }
+    } catch (err) {
+      console.error("Error fetching user profile:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const stats: StatCard[] = [
     {
-      value: "312",
+      value: userProfile ? userProfile.profile_views.toString() : "0",
       label: "Profile Views",
       icon: Activity,
       color: "#E94057",
       change: "+22%",
     },
     {
-      value: "68",
+      value: userProfile ? userProfile.matches_count.toString() : "0",
       label: "Sugar Matches",
       icon: Heart,
       color: "#8B5CF6",
       change: "+15%",
     },
     {
-      value: "34",
-      label: "Messages",
+      value: userProfile ? userProfile.favorites_count.toString() : "0",
+      label: "Favorites",
       icon: MessageCircle,
       color: "#10B981",
       change: "+31%",
@@ -110,6 +161,14 @@ export default function DashboardHome() {
     },
   ];
 
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <Loader className="w-8 h-8 animate-spin" style={{ color: "#E94057" }} />
+      </div>
+    );
+  }
+
   return (
     <div className="max-w-7xl mx-auto space-y-8">
       {/* Welcome Hero Section */}
@@ -126,7 +185,7 @@ export default function DashboardHome() {
             <div>
               <p className="text-white/80 text-sm">Welcome back!</p>
               <h1 className="text-2xl lg:text-3xl font-bold">
-                {currentTime}, {userName}
+                {currentTime}, {userName || "Guest"}
               </h1>
             </div>
           </div>
@@ -258,7 +317,6 @@ export default function DashboardHome() {
           <h2 className="text-2xl font-bold text-gray-900">
             Why Choose Our Platform
           </h2>
-          
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -320,7 +378,7 @@ export default function DashboardHome() {
 
             <div className="p-4 rounded-xl bg-gray-50 border border-gray-100">
               <h4 className="font-semibold text-gray-900 mb-2">
-                Who You’ll Meet
+                Who You'll Meet
               </h4>
               <p className="text-sm text-gray-600">
                 Stylish, generous, and emotionally available women who enjoy
@@ -403,7 +461,10 @@ export default function DashboardHome() {
             a front-row seat to unforgettable dates. Get noticed by women who
             love to give — and to be deeply, deliciously charmed.
           </p>
-          <button className="px-8 py-4 bg-white text-purple-600 rounded-xl font-bold flex items-center gap-2 hover:shadow-2xl transition-all transform hover:scale-105">
+          <button
+            onClick={openModal}
+            className="px-8 py-4 bg-white text-purple-600 rounded-xl font-bold flex items-center gap-2 hover:shadow-2xl transition-all transform hover:scale-105"
+          >
             <Sparkles className="w-5 h-5" />
             View Premium Plans
             <ChevronRight className="w-5 h-5" />

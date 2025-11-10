@@ -5,6 +5,7 @@ import Sidebar from "@/components/dashboard/Sidebar";
 import Navbar from "@/components/dashboard/Navbar";
 import BottomTabNavigation from "@/components/dashboard/BottomTabNavigation";
 import ProtectedRoute from "@/components/major/ProtectedRoute";
+import UpgradeModal from "@/components/dashboard/UpgradeModal";
 
 export default function DashboardLayout({
   children,
@@ -33,6 +34,8 @@ export default function DashboardLayout({
 
         {/* Mobile Bottom Navigation */}
         <BottomTabNavigation />
+
+        <UpgradeModal />
       </div>
     </ProtectedRoute>
   );
