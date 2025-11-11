@@ -1,6 +1,30 @@
-"use client";
+
 
 import { Star, BadgeCheck } from "lucide-react";
+
+
+const reviewJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "SMSureConnect",
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.8",
+    reviewCount: "1250",
+  },
+  review: [
+    {
+      "@type": "Review",
+      author: "Anonymous User",
+      datePublished: "2025-01-15",
+      reviewBody: "Best platform for meeting successful women and sugar mommies",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+      },
+    },
+  ],
+};
 
 export default function TestimonialsSection() {
   return (
@@ -22,40 +46,40 @@ export default function TestimonialsSection() {
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-2">
             Stories from confident women and their lucky matches who found
-            sparks, passion, and partnership through SugarÉlite.
+            sparks, passion, and partnership through SMSureConnect.
           </p>
         </div>
 
         {/* Testimonials Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           <TestimonialCard
-            quote="I joined SugarÉlite after years of boring encounters. Within weeks, I met someone who truly admired my success — and kept up with my lifestyle. We travel, laugh, and spoil each other endlessly."
-            name="Victoria Chen"
-            age={53}
-            title="Tech Founder, Singapore"
+            quote="I joined SMSureConnect  after years of boring encounters. Within weeks, I met someone who truly admired my success — and kept up with my lifestyle. We travel, laugh, and spoil each other endlessly."
+            name="James Harrison"
+            age={30}
+            title="Tech Founder, Canada"
             image="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop"
             relationship="In Love"
-            coupleImage="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600&h=400&fit=crop"
+            coupleImage="https://res.cloudinary.com/djspmrmxw/image/upload/v1762850252/cute-couple-kissing-outdoors-blanket_muphw4.jpg"
           />
 
           <TestimonialCard
-            quote="I’m a busy surgeon, and I wanted something real — not small talk. SugarÉlite introduced me to a partner who values ambition and affection equally. We’ve been inseparable ever since."
-            name="Dr. Margaret Sullivan"
-            age={50}
+            quote="I’m a busy surgeon, and I wanted something real — not small talk. SMSureConnect  introduced me to a partner who values ambition and affection equally. We’ve been inseparable ever since."
+            name="Dr. Jude Sullivan"
+            age={40}
             title="Cardiothoracic Surgeon, Sydney"
             image="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop"
             relationship="Exclusive"
-            coupleImage="https://images.unsplash.com/photo-1606787619248-1b31e6c85922?w=600&h=400&fit=crop"
+            coupleImage="https://res.cloudinary.com/djspmrmxw/image/upload/v1762850260/cute-couple-park-lady-white-shirt-people-pier_nec9wy.jpg"
           />
 
           <TestimonialCard
-            quote="After my divorce, I wanted fun, chemistry, and connection without the games. SugarÉlite gave me all three — and a partner who adores every inch of my confidence."
-            name="Diana Foster"
-            age={57}
+            quote="After my divorce, I wanted fun, chemistry, and connection without the games. SMSureConnect  gave me all three — and a partner who adores every inch of my confidence."
+            name="Charles Foster"
+            age={60}
             title="Luxury Consultant, Toronto"
             image="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop"
             relationship="Happily Matched"
-            coupleImage="https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?w=600&h=400&fit=crop"
+            coupleImage="https://res.cloudinary.com/djspmrmxw/image/upload/v1762850616/man-kissing-his-lover-s-hand_1_homaoy.jpg"
           />
         </div>
 
@@ -63,12 +87,17 @@ export default function TestimonialsSection() {
         <div className="mt-16 sm:mt-20 text-center">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 max-w-4xl mx-auto">
             <Stat label="Luxury Matches" value="12K+" />
-            <Stat label="Elite Success Rate" value="96%" />
+            <Stat label="SMSureConnect Success Rate" value="96%" />
             <Stat label="Power Couples Formed" value="4,500+" />
             <Stat label="Member Satisfaction" value="4.9/5" />
           </div>
         </div>
       </div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewJsonLd) }}
+      />
     </section>
   );
 }
@@ -130,13 +159,13 @@ function TestimonialCard({
           </p>
 
           <div className="flex items-center gap-3 sm:gap-4 pt-5 sm:pt-6 border-t border-gray-100">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden shrink-0 ring-2 ring-pink-100">
+            {/* <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden shrink-0 ring-2 ring-pink-100">
               <img
                 src={image}
                 alt={name}
                 className="w-full h-full object-cover"
               />
-            </div>
+            </div> */}
             <div className="flex-1 min-w-0">
               <div className="font-bold text-gray-900 truncate text-sm sm:text-base">
                 {name}, {age}

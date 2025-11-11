@@ -1,6 +1,20 @@
-"use client";
-
 import { BadgeCheck, Lock, Users, Shield } from "lucide-react";
+import Link from "next/link";
+
+const aboutSectionJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Premium Dating Platform",
+  provider: {
+    "@type": "Organization",
+    name: "SMSureConnect",
+  },
+  areaServed: "Worldwide",
+  audience: {
+    "@type": "PeopleAudience",
+    suggestedMinAge: 18,
+  },
+};
 
 export default function AboutSection() {
   return (
@@ -15,14 +29,14 @@ export default function AboutSection() {
               <div className="space-y-6">
                 <div className="relative h-64 sm:h-80 rounded-2xl overflow-hidden shadow-xl">
                   <img
-                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=600&fit=crop"
+                    src="https://res.cloudinary.com/djspmrmxw/image/upload/v1762850403/very-beautiful-blonde-woman-white-fashionable-stylish-suit-studio-charming-woman-looks-poses-camera_1_r0jk62.jpg"
                     alt="Successful woman"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="relative h-48 sm:h-64 rounded-2xl overflow-hidden shadow-xl">
                   <img
-                    src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=500&fit=crop"
+                    src="https://res.cloudinary.com/djspmrmxw/image/upload/v1762850263/fashion-outdoor-portrait-naked-woman-sits-sofa-covering-herself-with-blanket-holding-cigar_z4zger.jpg"
                     alt="Elegant woman"
                     className="w-full h-full object-cover"
                   />
@@ -31,14 +45,14 @@ export default function AboutSection() {
               <div className="space-y-6 pt-12">
                 <div className="relative h-48 sm:h-64 rounded-2xl overflow-hidden shadow-xl">
                   <img
-                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=500&fit=crop"
+                    src="https://res.cloudinary.com/djspmrmxw/image/upload/v1762850259/beautiful-woman-fancy-dress-walking-down-street-fashion-beauty-makeup-evening-dress-smiling-girl-posing-model-luxury-wearing-accessories-blonde-volume-hair-lipstick-eyes-perfect_jmxpsi.jpg"
                     alt="Professional woman"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="relative h-64 sm:h-80 rounded-2xl overflow-hidden shadow-xl">
                   <img
-                    src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=600&fit=crop"
+                    src="https://res.cloudinary.com/djspmrmxw/image/upload/v1762850260/portrait-beautiful-cute-blond-girl-white-t-shirt-jeans-posing-outdoors-cute-girl-sitting-asphalt-street_pu8fhr.jpg"
                     alt="Sophisticated woman"
                     className="w-full h-full object-cover"
                   />
@@ -54,7 +68,7 @@ export default function AboutSection() {
                 className="inline-block px-4 py-2 rounded-full bg-pink-100 text-sm font-semibold mb-6"
                 style={{ color: "#E94057" }}
               >
-                About EliteSugar
+                About SMSureConnect
               </div>
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
                 Meet Ambitious Women seeking for Love and Affection
@@ -63,22 +77,31 @@ export default function AboutSection() {
 
             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
               <p>
-                <strong className="text-gray-900">EliteSugar</strong> is a
-                premier platform crafted for accomplished women who seek romance
-                without compromise.
+                <strong className="text-gray-900">
+                  SMSureConnect (Sugar Mommy Sure Connect){" "}
+                </strong>{" "}
+                is the Number 1 online dating platform where confident men meet
+                rich, successful sugar mommies and elegant empresses. Connect
+                with generous, powerful women who love to spoil, support, and
+                share real luxury relationships built on trust and attraction.
+              </p>
+              <p>
+                <strong className="text-gray-900">We</strong> connect you with
+                rich, elegant sugar mommies ready to share affection, success,
+                and unforgettable experiences. It's a place where confidence
+                meets chemistry.
               </p>
 
               <p>
-                As a high-achieving woman—CEO, doctor, entrepreneur, or
-                creative—you deserve a partner who celebrates your success and
-                matches your sophistication.
+                Explore exclusive matches with accomplished women who appreciate
+                ambition, confidence, and charm. Real connections, no pretenses.
               </p>
 
               <p>
                 Unlike ordinary dating apps,{" "}
                 <strong className="text-gray-900">
-                  EliteSugar connects you with verified, accomplished
-                  individuals
+                  SMSureConnect connects you with verified, accomplished and
+                  beautiful women
                 </strong>{" "}
                 committed to meaningful connections and genuine compatibility.
               </p>
@@ -158,16 +181,21 @@ export default function AboutSection() {
             </div>
 
             <div className="pt-6">
-              <button
-                className="px-10 py-4 text-white text-lg font-semibold rounded-full shadow-xl hover:shadow-2xl transition-all transform hover:scale-105"
+              <Link
+                href={"/regitser"}
+                className="px-10 inline-block py-4 text-white text-lg font-semibold rounded-full shadow-xl hover:shadow-2xl transition-all transform hover:scale-105"
                 style={{ backgroundColor: "#E94057" }}
               >
                 Start Your Journey
-              </button>
+              </Link>
             </div>
           </div>
         </div>
       </div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSectionJsonLd) }}
+      />
     </section>
   );
 }

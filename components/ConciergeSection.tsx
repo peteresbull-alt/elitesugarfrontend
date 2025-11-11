@@ -7,8 +7,10 @@ import {
   ShieldCheck,
   ChevronRight,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function ConciergeSection() {
+  const router = useRouter();
   return (
     <section className="py-20 sm:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -17,7 +19,7 @@ export default function ConciergeSection() {
           <div className="relative order-2 lg:order-1">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=800&h=1000&fit=crop"
+                src="https://res.cloudinary.com/djspmrmxw/image/upload/v1762853950/loving-young-couple-kissing-together-restaurant_toihjg.jpg"
                 alt="Professional concierge service"
                 className="w-full h-[600px] object-cover"
               />
@@ -28,25 +30,18 @@ export default function ConciergeSection() {
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-full  shrink-0 overflow-hidden">
                     <img
-                      src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop"
+                      src="https://res.cloudinary.com/djspmrmxw/image/upload/v1762853338/profile_telegram_ssmconnect_jttx1t.jpg"
                       alt="Concierge"
                       className="w-full h-full object-cover"
                     />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="text-sm font-semibold text-gray-900">
-                      Sarah, Your Concierge
+                      Vicki, Your Concierge
                     </div>
                     <div className="text-xs text-gray-600 mt-1 line-clamp-2">
                       I've arranged a private dinner tonight at an exclusive
                       location. Luxury transportation is included.
-                    </div>
-                    <div
-                      className="text-xs font-semibold mt-2 flex items-center gap-1"
-                      style={{ color: "#E94057" }}
-                    >
-                      View Details
-                      <ChevronRight className="w-3 h-3" />
                     </div>
                   </div>
                 </div>
@@ -98,13 +93,14 @@ export default function ConciergeSection() {
 
             <div className="pt-6">
               <button
+                onClick={() => router.push("/register")}
                 className="px-10 py-4 text-white text-lg font-semibold rounded-full shadow-xl hover:shadow-2xl transition-all transform hover:scale-105"
                 style={{ backgroundColor: "#E94057" }}
               >
                 Unlock Premium Access
               </button>
               <p className="text-sm text-gray-500 mt-4">
-                Premium membership starts at $99/month
+                Premium membership starts at $1,000 / 3 months
               </p>
             </div>
           </div>

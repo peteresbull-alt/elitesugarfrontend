@@ -104,7 +104,7 @@ export default function Navbar({ showFilters, setShowFilters }: NavbarProps) {
             className="text-2xl font-bold text-gray-900 lg:hidden"
             style={{ color: "#E94057" }}
           >
-            EliteSugar
+            SMSureConnect
           </h2>
           <h2 className="hidden lg:block text-2xl font-bold text-gray-900">
             Discover Your Match

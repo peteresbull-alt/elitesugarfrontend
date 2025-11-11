@@ -14,7 +14,7 @@ export default function SidebarHero() {
       <div className="relative z-10 flex flex-col items-center justify-center w-full p-12">
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold text-white mb-4">
-            Join EliteSugar Today
+            Join SMSureConnect Today
           </h1>
           <p className="text-xl text-white/90">
             Where successful women find lasting love
@@ -24,32 +24,32 @@ export default function SidebarHero() {
         <div className="grid grid-cols-2 gap-4 max-w-md w-full">
           <div className="relative h-64 rounded-2xl overflow-hidden shadow-2xl">
             <img
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=600&fit=crop"
-              alt="EliteSugar member"
+              src="https://res.cloudinary.com/djspmrmxw/image/upload/v1762850260/portrait-beautiful-cute-blond-girl-white-t-shirt-jeans-posing-outdoors-cute-girl-sitting-asphalt-street_pu8fhr.jpg"
+              alt="SMSureConnect member"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
           </div>
           <div className="relative h-64 rounded-2xl overflow-hidden shadow-2xl mt-8">
             <img
-              src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=600&fit=crop"
-              alt="EliteSugar member"
+              src="https://res.cloudinary.com/djspmrmxw/image/upload/v1762850259/beautiful-woman-fancy-dress-walking-down-street-fashion-beauty-makeup-evening-dress-smiling-girl-posing-model-luxury-wearing-accessories-blonde-volume-hair-lipstick-eyes-perfect_jmxpsi.jpg"
+              alt="SMSureConnect member"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
           </div>
           <div className="relative h-64 rounded-2xl overflow-hidden shadow-2xl -mt-4">
             <img
-              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=600&fit=crop"
-              alt="EliteSugar member"
+              src="https://res.cloudinary.com/djspmrmxw/image/upload/v1762850263/fashion-outdoor-portrait-naked-woman-sits-sofa-covering-herself-with-blanket-holding-cigar_z4zger.jpg"
+              alt="SMSureConnect member"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
           </div>
           <div className="relative h-64 rounded-2xl overflow-hidden shadow-2xl mt-4">
             <img
-              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=600&fit=crop"
-              alt="EliteSugar member"
+              src="https://res.cloudinary.com/djspmrmxw/image/upload/v1762850617/portrait-beautiful-young-woman-holding-her-boyfriend-valentines-day-concept_1_uvixna.jpg"
+              alt="SMSureConnect member"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>

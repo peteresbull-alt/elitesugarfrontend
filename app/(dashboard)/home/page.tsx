@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import { BACKEND_URL } from "@/lib/constants";
 import { useUpgradeModal } from "@/store/useUpgradeModal";
+import Link from "next/link";
 
 const API_BASE_URL = BACKEND_URL; // Update with your BACKEND_URL
 
@@ -47,6 +48,7 @@ interface UserProfile {
   profile_views: number;
   matches_count: number;
   favorites_count: number;
+  membership_type: string;
 }
 
 export default function DashboardHome() {
@@ -54,7 +56,6 @@ export default function DashboardHome() {
   const [currentTime, setCurrentTime] = useState("");
   const [loading, setLoading] = useState(true);
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
-
 
   const { openModal } = useUpgradeModal();
 
@@ -370,7 +371,7 @@ export default function DashboardHome() {
               </h4>
               <p className="text-sm text-gray-600">
                 Dive into a world of opulence and warmth. Our community connects
-                charismatic, successful women (40–80) with people who crave
+                charismatic, successful women (40 to 80) with people who crave
                 affection, excitement, and the finer things. Expect thoughtful
                 gestures, memorable nights, and relationships that sparkle.
               </p>
@@ -409,68 +410,82 @@ export default function DashboardHome() {
           </div>
 
           <div className="space-y-3">
-            <button className="w-full px-4 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-xl font-semibold transition-all text-left flex items-center gap-3 border border-white/10">
+            <Link
+              href={"/explore"}
+              className="w-full px-4 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-xl font-semibold transition-all text-left flex items-center gap-3 border border-white/10"
+            >
               <div className="w-8 h-8 rounded-lg bg-pink-500 flex items-center justify-center">
                 <Heart className="w-4 h-4" />
               </div>
               Browse Matches
-            </button>
+            </Link>
 
-            <button className="w-full px-4 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-xl font-semibold transition-all text-left flex items-center gap-3 border border-white/10">
+            <Link
+              href={"/notifications"}
+              className="w-full px-4 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-xl font-semibold transition-all text-left flex items-center gap-3 border border-white/10"
+            >
               <div className="w-8 h-8 rounded-lg bg-purple-500 flex items-center justify-center">
                 <MessageCircle className="w-4 h-4" />
               </div>
-              Check Messages
-            </button>
+              Check Notifications
+            </Link>
 
-            <button className="w-full px-4 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-xl font-semibold transition-all text-left flex items-center gap-3 border border-white/10">
+            <Link
+              href={"/"}
+              className="w-full px-4 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-xl font-semibold transition-all text-left flex items-center gap-3 border border-white/10"
+            >
               <div className="w-8 h-8 rounded-lg bg-amber-500 flex items-center justify-center">
                 <Award className="w-4 h-4" />
               </div>
               Upgrade Membership
-            </button>
+            </Link>
 
-            <button className="w-full px-4 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-xl font-semibold transition-all text-left flex items-center gap-3 border border-white/10">
+            <Link
+              href={"/profile"}
+              className="w-full px-4 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-xl font-semibold transition-all text-left flex items-center gap-3 border border-white/10"
+            >
               <div className="w-8 h-8 rounded-lg bg-blue-500 flex items-center justify-center">
                 <Shield className="w-4 h-4" />
               </div>
-              Verify Profile
-            </button>
+              Update Profile
+            </Link>
           </div>
         </div>
       </div>
 
       {/* CTA Banner */}
-      <div className="bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 rounded-3xl p-8 lg:p-12 text-white shadow-2xl relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/10"></div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+      {userProfile && userProfile.membership_type !== "platinum" && (
+        <div className="bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 rounded-3xl p-8 lg:p-12 text-white shadow-2xl relative overflow-hidden">
+          <div className="absolute inset-0 bg-black/10"></div>
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
 
-        <div className="relative z-10 max-w-3xl">
-          <div className="flex items-center gap-2 mb-4">
-            <Crown className="w-8 h-8 text-yellow-300" />
-            <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm">
-              EXCLUSIVE ACCESS
-            </span>
+          <div className="relative z-10 max-w-3xl">
+            <div className="flex items-center gap-2 mb-4">
+              <Crown className="w-8 h-8 text-yellow-300" />
+              <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm">
+                EXCLUSIVE ACCESS
+              </span>
+            </div>
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              Experience Luxury & Romance
+            </h2>
+            <p className="text-lg text-white/90 mb-6">
+              Upgrade to premium for VIP visibility, concierge introductions,
+              and a front-row seat to unforgettable dates. Get noticed by women
+              who love to give — and to be deeply, deliciously charmed.
+            </p>
+            <button
+              onClick={openModal}
+              className="px-8 py-4 bg-white text-purple-600 rounded-xl font-bold flex items-center gap-2 hover:shadow-2xl transition-all transform hover:scale-105"
+            >
+              <Sparkles className="w-5 h-5" />
+              View Premium Plans
+              <ChevronRight className="w-5 h-5" />
+            </button>
           </div>
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-            Experience Luxury & Romance
-          </h2>
-          <p className="text-lg text-white/90 mb-6">
-            Upgrade to premium for VIP visibility, concierge introductions, and
-            a front-row seat to unforgettable dates. Get noticed by women who
-            love to give — and to be deeply, deliciously charmed.
-          </p>
-          <button
-            onClick={openModal}
-            className="px-8 py-4 bg-white text-purple-600 rounded-xl font-bold flex items-center gap-2 hover:shadow-2xl transition-all transform hover:scale-105"
-          >
-            <Sparkles className="w-5 h-5" />
-            View Premium Plans
-            <ChevronRight className="w-5 h-5" />
-          </button>
         </div>
-      </div>
+      )}
     </div>
   );
 }

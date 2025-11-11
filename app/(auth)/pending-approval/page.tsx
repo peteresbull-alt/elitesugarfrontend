@@ -48,7 +48,7 @@ export default function PendingApprovalPage() {
 
           {/* Message */}
           <p className="text-center text-gray-600 text-lg mb-8">
-            Thank you for registering with Élite! Your account has been
+            Thank you for registering with SMSureConnect! Your account has been
             successfully created and is currently under review.
           </p>
 
@@ -86,22 +86,13 @@ export default function PendingApprovalPage() {
             </div>
           </div>
 
-          {/* User Email */}
-          {userEmail && (
-            <div className="bg-gray-50 rounded-lg p-4 mb-8">
-              <p className="text-sm text-gray-600 text-center">
-                Confirmation sent to:{" "}
-                <span className="font-semibold text-gray-900">{userEmail}</span>
-              </p>
-            </div>
-          )}
-
           {/* Info Box */}
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-8">
             <p className="text-sm text-blue-800">
-              <strong>Note:</strong> Élite maintains high standards to ensure
-              the quality of our community. All profiles are manually reviewed
-              to verify authenticity and maintain our exclusive environment.
+              <strong>Note:</strong> SMSureConnect maintains high standards to
+              ensure the quality of our community. All profiles are manually
+              reviewed to verify authenticity and maintain our exclusive
+              environment.
             </p>
           </div>
 
@@ -114,7 +105,7 @@ export default function PendingApprovalPage() {
               <span>Back to Login</span>
             </button>
             <Link
-              href="mailto:support@elite.com"
+              href="https://t.me/Smsureconnect"
               className="flex-1 px-6 py-4 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
               style={{ backgroundColor: "#E94057" }}
             >
@@ -125,13 +116,13 @@ export default function PendingApprovalPage() {
 
           {/* Footer Note */}
           <p className="text-center text-sm text-gray-500 mt-8">
-            Questions? Check your spam folder or{" "}
+            Questions? Contact the livechat below or{" "}
             <a
-              href="mailto:support@elite.com"
+              href="https://t.me/Smsureconnect"
               className="font-semibold hover:underline"
               style={{ color: "#E94057" }}
             >
-              contact our support team
+              contact our support team via Telegram
             </a>
           </p>
         </div>

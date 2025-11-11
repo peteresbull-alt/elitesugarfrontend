@@ -4,10 +4,6 @@ import { useUpgradeModal } from "@/store/useUpgradeModal";
 import {
   X,
   Crown,
-  Instagram,
-  Twitter,
-  Facebook,
-  Mail,
   Phone,
   MessageCircle,
   Sparkles,
@@ -15,6 +11,8 @@ import {
   Shield,
   Zap,
 } from "lucide-react";
+
+import { FaTelegram } from "react-icons/fa";
 
 export default function UpgradeModal() {
   const { isOpen, closeModal } = useUpgradeModal();
@@ -25,48 +23,26 @@ export default function UpgradeModal() {
     {
       name: "WhatsApp",
       icon: MessageCircle,
-      handle: "+234 XXX XXX XXXX",
-      link: "https://wa.me/234XXXXXXXXXX",
+      handle: "+61485976275",
+      link: "https://wa.me/61485976275",
       color: "#25D366",
       bgColor: "#25D36610",
     },
+
     {
-      name: "Instagram",
-      icon: Instagram,
-      handle: "@elitedating",
-      link: "https://instagram.com/elitedating",
-      color: "#E4405F",
-      bgColor: "#E4405F10",
-    },
-    {
-      name: "Twitter",
-      icon: Twitter,
-      handle: "@elitedating",
-      link: "https://twitter.com/elitedating",
+      name: "Telegram",
+      icon: FaTelegram,
+      handle: "@Smsureconnect",
+      link: "https://t.me/Smsureconnect",
       color: "#1DA1F2",
       bgColor: "#1DA1F210",
     },
-    {
-      name: "Facebook",
-      icon: Facebook,
-      handle: "Elite Dating",
-      link: "https://facebook.com/elitedating",
-      color: "#1877F2",
-      bgColor: "#1877F210",
-    },
-    {
-      name: "Email",
-      icon: Mail,
-      handle: "support@elitedating.com",
-      link: "mailto:support@elitedating.com",
-      color: "#EA4335",
-      bgColor: "#EA433510",
-    },
+
     {
       name: "Phone",
       icon: Phone,
-      handle: "+234 XXX XXX XXXX",
-      link: "tel:+234XXXXXXXXXX",
+      handle: "+61485976275",
+      link: "tel:+61485976275",
       color: "#34A853",
       bgColor: "#34A85310",
     },

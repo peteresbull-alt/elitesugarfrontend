@@ -19,6 +19,7 @@ import ProgressBar from "@/components/register/ProgressBar";
 import AlertMessage from "@/components/register/AlertMessage";
 import NavigationButtons from "@/components/register/NavigationButtons";
 import SidebarHero from "@/components/register/SidebarHero";
+import { ArrowLeft } from "lucide-react";
 
 const API_BASE_URL = BACKEND_URL;
 
@@ -297,10 +298,14 @@ export default function RegisterPage() {
               className="text-4xl font-bold mb-2"
               style={{ color: "#E94057" }}
             >
-              EliteSugar
+              SMSureConnect
             </h1>
             <p className="text-gray-600">Create your account</p>
           </div>
+          <Link href={"/"} className="flex items-center gap-1 mb-5">
+            <ArrowLeft />
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">Sign Up</h2>
+          </Link>
 
           <ProgressBar currentStep={currentStep} totalSteps={totalSteps} />
 

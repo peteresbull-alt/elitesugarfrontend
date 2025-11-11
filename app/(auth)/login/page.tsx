@@ -4,7 +4,15 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Eye, EyeOff, ArrowRight, AlertCircle, Check } from "lucide-react";
+import {
+  Eye,
+  EyeOff,
+  ArrowRight,
+  AlertCircle,
+  Check,
+  ArrowBigLeft,
+  ArrowLeft,
+} from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { BACKEND_URL } from "@/lib/constants";
@@ -114,7 +122,7 @@ export default function LoginPage() {
         <div className="relative z-10 flex flex-col items-center justify-center w-full p-12">
           <div className="text-center mb-12">
             <h1 className="text-5xl font-bold text-white mb-4">
-              Welcome Back to EliteSugar
+              Welcome Back to SMSureConnect
             </h1>
             <p className="text-xl text-white/90">
               Your perfect match is waiting for you
@@ -124,8 +132,8 @@ export default function LoginPage() {
           <div className="grid grid-cols-2 gap-4 max-w-md w-full">
             <div className="relative h-64 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300">
               <img
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=600&fit=crop"
-                alt="EliteSugar member"
+                src="https://res.cloudinary.com/djspmrmxw/image/upload/v1762850260/portrait-beautiful-cute-blond-girl-white-t-shirt-jeans-posing-outdoors-cute-girl-sitting-asphalt-street_pu8fhr.jpg"
+                alt="SMSureConnect  member"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
@@ -133,8 +141,8 @@ export default function LoginPage() {
 
             <div className="relative h-64 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300 mt-8">
               <img
-                src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=600&fit=crop"
-                alt=" EliteSugar member"
+                src="https://res.cloudinary.com/djspmrmxw/image/upload/v1762850259/beautiful-woman-fancy-dress-walking-down-street-fashion-beauty-makeup-evening-dress-smiling-girl-posing-model-luxury-wearing-accessories-blonde-volume-hair-lipstick-eyes-perfect_jmxpsi.jpg"
+                alt=" SMSureConnect  member"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
@@ -142,8 +150,8 @@ export default function LoginPage() {
 
             <div className="relative h-64 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300 -mt-4">
               <img
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=600&fit=crop"
-                alt=" EliteSugar member"
+                src="https://res.cloudinary.com/djspmrmxw/image/upload/v1762850263/fashion-outdoor-portrait-naked-woman-sits-sofa-covering-herself-with-blanket-holding-cigar_z4zger.jpg"
+                alt=" SMSureConnect  member"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
@@ -151,8 +159,8 @@ export default function LoginPage() {
 
             <div className="relative h-64 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300 mt-4">
               <img
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=600&fit=crop"
-                alt=" EliteSugar member"
+                src="https://res.cloudinary.com/djspmrmxw/image/upload/v1762850617/portrait-beautiful-young-woman-holding-her-boyfriend-valentines-day-concept_1_uvixna.jpg"
+                alt=" SMSureConnect  member"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
@@ -183,13 +191,17 @@ export default function LoginPage() {
               className="text-4xl font-bold mb-2"
               style={{ color: "#E94057" }}
             >
-              EliteSugar
+              SMSureConnect
             </h1>
             <p className="text-gray-600">Welcome back</p>
           </div>
 
           <div className="mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">Sign In</h2>
+            <Link href={"/"} className="flex items-center gap-1">
+              <ArrowLeft />
+              <h2 className="text-3xl font-bold text-gray-900 mb-2">Sign In</h2>
+            </Link>
+
             <p className="text-gray-600">Enter your credentials to continue</p>
           </div>
 

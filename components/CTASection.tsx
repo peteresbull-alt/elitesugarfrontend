@@ -1,8 +1,10 @@
 "use client";
 
 import { Apple, Play, ArrowRight, CheckCircle } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function CTASection() {
+  const router = useRouter();
   return (
     <section className="py-32 sm:py-40 relative overflow-hidden">
       {/* Background Image */}
@@ -30,7 +32,7 @@ export default function CTASection() {
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight">
           Begin Your Story
-          <span className="block mt-2">With EliteSugar</span>
+          <span className="block mt-2">With SMSureConnect</span>
         </h2>
 
         <p className="text-xl sm:text-2xl text-white/95 mb-12 sm:mb-16 max-w-3xl mx-auto leading-relaxed">
@@ -40,17 +42,11 @@ export default function CTASection() {
 
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-12">
           <button
+            onClick={() => router.push("/register")}
             className="group px-12 sm:px-14 py-5 bg-white font-bold rounded-full shadow-2xl hover:shadow-3xl transition-all transform hover:scale-105 text-lg flex items-center justify-center gap-3"
             style={{ color: "#E94057" }}
           >
-            <Apple className="w-6 h-6" />
-            Download for iOS
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </button>
-
-          <button className="group px-12 sm:px-14 py-5 bg-white/10 backdrop-blur-sm text-white font-bold rounded-full border-2 border-white hover:bg-white transition-all transform hover:scale-105 text-lg flex items-center justify-center gap-3 hover:text-gray-900">
-            <Play className="w-6 h-6 fill-current" />
-            Download for Android
+            Get Started Today
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>

@@ -143,7 +143,7 @@ function ProfileCard({
               </div>
               <div className="flex gap-2">
                 <div className="px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-xs font-semibold">
-                  EliteSugar
+                  SMSureConnect
                 </div>
                 <div className="px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-xs font-semibold">
                   Verified Luxe

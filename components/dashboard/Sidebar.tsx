@@ -169,7 +169,7 @@ export default function Sidebar() {
           </div>
           <div>
             <h1 className="text-2xl font-bold" style={{ color: "#E94057" }}>
-              EliteSugar
+              SMSureConnect
             </h1>
             <p className="text-xs text-gray-500">Premium Dating</p>
           </div>

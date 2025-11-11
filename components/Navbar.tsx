@@ -17,7 +17,7 @@ export default function Navbar() {
             className="text-3xl sm:text-4xl font-bold tracking-tight"
             style={{ color: "#E94057" }}
           >
-            EliteSugar
+            SMSureConnect
           </div>
 
           {/* Desktop Navigation */}

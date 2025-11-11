@@ -1,6 +1,7 @@
 "use client";
 
 import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { FaTelegram, FaWhatsapp } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -14,44 +15,51 @@ export default function Footer() {
             letterSpacing: "-0.02em",
           }}
         >
-          ÉLITE
+          SMSureConnect
         </h1>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2">
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <div
               className="text-4xl font-bold mb-4"
               style={{ color: "#E94057" }}
             >
-              Élite
+              SMSureConnect
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed max-w-sm">
-              The premier dating platform for accomplished women seeking
-              meaningful connections with exceptional partners.
+              SMSureConnect (Sugar Mommy Sure Connect) is the #1 online dating platform where
+              confident men meet rich, successful sugar mommies and elegant
+              empresses. Connect with generous, powerful women who love to
+              spoil, support, and share real luxury relationships built on trust
+              and attraction.
             </p>
             <div className="flex gap-4">
               <SocialIcon>
-                <Facebook className="w-5 h-5" />
+                <FaTelegram className="w-5 h-5" />
               </SocialIcon>
               <SocialIcon>
-                <Twitter className="w-5 h-5" />
-              </SocialIcon>
-              <SocialIcon>
-                <Instagram className="w-5 h-5" />
-              </SocialIcon>
-              <SocialIcon>
-                <Linkedin className="w-5 h-5" />
+                <FaWhatsapp className="w-5 h-5" />
               </SocialIcon>
             </div>
           </div>
 
           {/* Product Column */}
-          <div>
-            <h4 className="font-bold text-white mb-4 text-lg">Product</h4>
-            <ul className="space-y-3 text-gray-400">
+          <div className="md:p-3">
+            <h4 className="font-bold text-white mb-4 text-lg mt-4">
+              Quick Links
+            </h4>
+            <ul className="space-y-3 text-gray-400 flex gap-5 flex-wrap ">
+              <li>
+                <a
+                  href="/register"
+                  className="hover:text-white transition-colors"
+                >
+                  Get Started
+                </a>
+              </li>
               <li>
                 <a
                   href="#features"
@@ -61,72 +69,19 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Pricing
+                <a
+                  href="#how-it-works"
+                  className="hover:text-white transition-colors"
+                >
+                  How it works
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Premium
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Concierge
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Company Column */}
-          <div>
-            <h4 className="font-bold text-white mb-4 text-lg">Company</h4>
-            <ul className="space-y-3 text-gray-400">
-              <li>
-                <a href="#about" className="hover:text-white transition-colors">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Careers
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Press
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Blog
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Support Column */}
-          <div>
-            <h4 className="font-bold text-white mb-4 text-lg">Support</h4>
-            <ul className="space-y-3 text-gray-400">
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Help Center
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Safety
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Terms
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Privacy
+                <a
+                  href="#testimonials"
+                  className="hover:text-white transition-colors"
+                >
+                  Testimonials
                 </a>
               </li>
             </ul>
@@ -134,21 +89,10 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="pt-8 border-t mt-6 border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-gray-400 text-sm text-center md:text-left">
-            © 2025 Élite. All rights reserved. Made with ❤️ for accomplished
-            women.
-          </div>
-          <div className="flex flex-wrap gap-6 text-sm text-gray-400 justify-center">
-            <a href="#" className="hover:text-white transition-colors">
-              Terms of Service
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
-              Cookie Settings
-            </a>
+            © 2025 SMSureConnect. All rights reserved. Made with love for those
+            seeking affectionate women.
           </div>
         </div>
       </div>
