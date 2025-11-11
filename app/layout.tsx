@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import AccessModal from "@/components/AccessModal";
+import LiveChat from "@/components/major/LiveChat";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -193,6 +194,8 @@ export default function RootLayout({
       >
         {children}
         <AccessModal />
+
+        <LiveChat />
       </body>
     </html>
   );
