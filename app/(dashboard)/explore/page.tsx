@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { BACKEND_URL } from "@/lib/constants";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const API_BASE_URL = BACKEND_URL;
 
@@ -515,8 +516,6 @@ export default function ExplorePage() {
                     >
                       <X className="w-6 h-6 text-gray-600" />
                     </button>
-
-                    
                   </div>
 
                   {/* Profile Content */}
@@ -847,17 +846,18 @@ export default function ExplorePage() {
 
                     {/* Action Buttons */}
                     <div className="flex gap-3">
-                      <button
+                      <Link
+                        href={"https://t.me/Smsureconnect"}
                         className="flex-1 py-4 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
                         style={{ backgroundColor: "#E94057" }}
                       >
                         <MessageCircle className="w-5 h-5" />
                         Start Chat
-                      </button>
-                      <button className="px-6 py-4 border-2 border-pink-500 text-pink-600 font-semibold rounded-xl hover:bg-pink-50 transition-all flex items-center justify-center gap-2">
+                      </Link>
+                      {/* <button className="px-6 py-4 border-2 border-pink-500 text-pink-600 font-semibold rounded-xl hover:bg-pink-50 transition-all flex items-center justify-center gap-2">
                         <Heart className="w-5 h-5" />
                         Like
-                      </button>
+                      </button> */}
                     </div>
                   </div>
                 </>

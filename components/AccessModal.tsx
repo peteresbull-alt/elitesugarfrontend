@@ -132,14 +132,14 @@ const AccessModal = () => {
                   Don’t have a code? Contact our concierge team:
                   <div className="flex justify-center gap-5 mt-3">
                     <a
-                      href="mailto:admin@example.com"
+                      href="mailto:Mummyconnectionss@gmail.com"
                       target="_blank"
                       className="flex items-center gap-1 hover:text-pink-600 transition"
                     >
                       <Mail className="w-4 h-4" /> Email
                     </a>
                     <a
-                      href="https://t.me/youradmin"
+                      href="https://t.me/Smsureconnect"
                       target="_blank"
                       className="flex items-center gap-1 hover:text-pink-600 transition"
                     >
