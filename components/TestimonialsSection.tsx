@@ -53,26 +53,6 @@ export default function TestimonialsSection() {
         {/* Testimonials Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           <TestimonialCard
-            quote="I joined SMSureConnect  after years of boring encounters. Within weeks, I met someone who truly admired my success — and kept up with my lifestyle. We travel, laugh, and spoil each other endlessly."
-            name="James Harrison"
-            age={30}
-            title="Tech Founder, Canada"
-            image="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop"
-            relationship="In Love"
-            coupleImage="https://res.cloudinary.com/djspmrmxw/image/upload/v1762850252/cute-couple-kissing-outdoors-blanket_muphw4.jpg"
-          />
-
-          <TestimonialCard
-            quote="I’m a busy surgeon, and I wanted something real — not small talk. SMSureConnect  introduced me to a partner who values ambition and affection equally. We’ve been inseparable ever since."
-            name="Dr. Jude Sullivan"
-            age={40}
-            title="Cardiothoracic Surgeon, Sydney"
-            image="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop"
-            relationship="Exclusive"
-            coupleImage="https://res.cloudinary.com/djspmrmxw/image/upload/v1762850260/cute-couple-park-lady-white-shirt-people-pier_nec9wy.jpg"
-          />
-
-          <TestimonialCard
             quote="After my divorce, I wanted fun, chemistry, and connection without the games. SMSureConnect  gave me all three — and a partner who adores every inch of my confidence."
             name="Charles Foster"
             age={60}
@@ -80,6 +60,86 @@ export default function TestimonialsSection() {
             image="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop"
             relationship="Happily Matched"
             coupleImage="https://res.cloudinary.com/djspmrmxw/image/upload/v1762850616/man-kissing-his-lover-s-hand_1_homaoy.jpg"
+          />
+
+          <TestimonialCard
+            quote="I was stuck in a dead-end warehouse job in Dubai, sending money home and living in a cramped flat with five roommates. SMSureConnect connected me with Layla, a successful investment banker who saw my ambition. She mentored me through business school, helped me launch my import-export company, and now I employ 30 people. This platform gave me the life I only dreamed about."
+            name="Omar Hassan"
+            age={33}
+            title="Import-Export Magnate, Dubai, UAE"
+            image="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
+            relationship="Life Partners"
+            coupleImage="/testimonials/Why-Older-Higher-Satisfaction.webp"
+          />
+
+          <TestimonialCard
+            quote="As a struggling artist in London, I was working three part-time jobs just to afford my studio rent. SMSureConnect introduced me to Victoria, a gallery owner who believed in my vision. She didn't just support me financially — she opened doors I never knew existed. Last month, my exhibition sold out. I'm living the dream I thought was impossible."
+            name="Marcus Bennett"
+            age={32}
+            title="Visual Artist, London, UK"
+            image="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop"
+            relationship="Together & Thriving"
+            coupleImage="/testimonials/testimonial_boy_older_woman.jpg"
+          />
+
+          <TestimonialCard
+            quote="I was working dead-end retail jobs in Melbourne, struggling to pay rent and watching my music dreams fade. Through SMSureConnect, I met Jennifer, a entertainment industry executive who saw my potential. She funded my home studio, connected me with producers, and now I'm signed to a major label with my debut album dropping next month. She turned my impossible dream into my reality."
+            name="Liam Foster"
+            age={28}
+            title="Recording Artist, Melbourne, Australia"
+            image="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop"
+            relationship="Power Couple"
+            coupleImage="/testimonials/images_woman_man_younger.jpeg"
+          />
+
+          <TestimonialCard
+            quote="I was a broke personal trainer in Barcelona, living paycheck to paycheck with no savings. Then I matched with Isabella, a real estate mogul who became my biggest blessing. She invested in my fitness franchise concept, and now I own five luxury gyms across Spain. Beyond the money, she taught me about wealth-building, investments, and believing in myself. SMSureConnect gave me a partner and a mentor rolled into one incredible woman."
+            name="Rafael Costa"
+            age={35}
+            title="Fitness Empire Owner, Barcelona, Spain"
+            image="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop"
+            relationship="Building Together"
+            coupleImage="/testimonials/images_with_older_woman.jpeg"
+          />
+
+          <TestimonialCard
+            quote="I was drowning in student debt from medical school in Toronto, working brutal hospital shifts and side gigs just to survive. SMSureConnect connected me with Elena, a pharmaceutical executive who understood my struggle. She helped me clear my debt, invest wisely, and now I practice medicine without financial stress while building a real estate portfolio. She saw my worth when I couldn't afford to see it myself."
+            name="David Chen"
+            age={31}
+            title="Emergency Physician & Investor, Toronto, Canada"
+            image="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop"
+            relationship="Committed & Grateful"
+            coupleImage="/testimonials/testimonials_1.webp"
+          />
+
+          <TestimonialCard
+            quote="I'm a queer woman from Sydney who'd been struggling to make my fashion design dreams work while working retail. On SMSureConnect, I met Carmen — a successful marketing director who became my girlfriend and business angel. She funded my first collection, taught me about branding, and now my designs are in boutiques across Australia. This platform gave me love, financial freedom, and the confidence to own every part of who I am."
+            name="Sophie Martinez"
+            age={35}
+            title="Fashion Designer, Sydney, Australia"
+            image="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop"
+            relationship="In Love & In Business"
+            coupleImage="/testimonials/Lesbian_Couple_Steve_Cole_Vetta_Getty-56a44c683df78cf77281a2af.webp"
+          />
+
+          <TestimonialCard
+            quote="As a non-binary person in Berlin, finding genuine connection felt impossible, and my music career was going nowhere. SMSureConnect introduced me to Katarina, an events producer who didn't just accept me — she celebrated me. She booked me for high-end venues, connected me with industry legends, and invested in my first album. Now I tour internationally and finally live authentically. She saw the artist in me before the world did."
+            name="Alex Rivers"
+            age={27}
+            title="Electronic Music Producer, Berlin, Germany"
+            image="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop"
+            relationship="Soulmates & Partners"
+            coupleImage="/testimonials/pexels-elina-fairytale-3893732-2.jpg"
+          />
+
+          <TestimonialCard
+            quote="I was bartending in Manila, barely affording rent and supporting my family back in the province. Through SMSureConnect, I met Sophia, a hotel chain owner who changed everything. She helped me get my hospitality management degree, and now I'm managing her flagship property with a six-figure salary. She believed in me when no one else did, and gave me the opportunity to prove myself."
+            name="Miguel Santos"
+            age={30}
+            title="Luxury Hotel Manager, Manila, Philippines"
+            image="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=400&h=400&fit=crop"
+            relationship="Forever Grateful"
+            coupleImage="/testimonials/testimonial_1.jpg"
           />
         </div>
 

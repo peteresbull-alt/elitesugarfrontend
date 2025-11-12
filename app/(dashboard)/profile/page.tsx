@@ -405,7 +405,7 @@ export default function ProfilePage() {
     userData.photos[0]?.image;
 
   return (
-    <div className="max-w-6xl mx-auto p-6">
+    <div className="max-w-6xl mx-auto md:p-6">
       {/* Success/Error Messages */}
       {success && (
         <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center gap-3">
@@ -422,18 +422,18 @@ export default function ProfilePage() {
       )}
 
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between gap-3 mb-6">
         <div>
           <h1 className="text-3xl font-bold text-gray-900">My Profile</h1>
           <p className="text-gray-600 mt-1">
             Manage your profile and preferences
           </p>
         </div>
-        <div className="flex gap-3">
+        <div className="flex gap-3 flex-wrap">
           {!isEditing ? (
             <button
               onClick={() => setIsEditing(true)}
-              className="px-6 py-3 bg-white border-2 border-gray-300 text-gray-700 rounded-xl font-semibold flex items-center gap-2 hover:border-pink-500 hover:text-pink-600 transition-all"
+              className="px-4 py-2 bg-white border-2 border-gray-300 text-gray-700 rounded-xl font-semibold flex items-center gap-2 hover:border-pink-500 hover:text-pink-600 transition-all"
             >
               <Edit2 className="w-5 h-5" />
               Edit Profile
@@ -443,7 +443,7 @@ export default function ProfilePage() {
               <button
                 onClick={handleCancel}
                 disabled={saving}
-                className="px-6 py-3 bg-white border-2 border-gray-300 text-gray-700 rounded-xl font-semibold flex items-center gap-2 hover:bg-gray-50 transition-all disabled:opacity-50"
+                className="px-4 py-2 bg-white border-2 border-gray-300 text-gray-700 rounded-xl font-semibold flex items-center gap-2 hover:bg-gray-50 transition-all disabled:opacity-50"
               >
                 <X className="w-5 h-5" />
                 Cancel
@@ -451,7 +451,7 @@ export default function ProfilePage() {
               <button
                 onClick={handleSave}
                 disabled={saving}
-                className="px-6 py-3 text-white rounded-xl font-semibold flex items-center gap-2 shadow-lg hover:shadow-xl transition-all disabled:opacity-50"
+                className="px-4 py-2 text-white rounded-xl font-semibold flex items-center gap-2 shadow-lg hover:shadow-xl transition-all disabled:opacity-50"
                 style={{ backgroundColor: "#E94057" }}
               >
                 {saving ? (
@@ -510,7 +510,7 @@ export default function ProfilePage() {
 
             <div className="flex flex-col items-center md:items-end gap-3 mt-4 md:mt-0">
               <div
-                className="px-6 py-3 rounded-xl flex items-center gap-2 shadow-md"
+                className="px-4 py-2 rounded-xl flex items-center gap-2 shadow-md"
                 style={{
                   backgroundColor: `${badge.color}15`,
                   border: `2px solid ${badge.color}`,

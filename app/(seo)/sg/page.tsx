@@ -12,7 +12,6 @@ import Footer from "@/components/Footer";
 import FAQSection from "@/components/FAQs";
 
 
-
 export const metadata: Metadata = {
   title: "Sugar Mommy Singapore | Premium Dating with Successful Women",
   description:

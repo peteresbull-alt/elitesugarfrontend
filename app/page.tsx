@@ -14,9 +14,11 @@ import FAQSection from "@/components/FAQs";
 export const metadata: Metadata = {
   title: "Meet Successful Sugar Mommies in Australia, Singapore, NZ & Canada",
   description:
-    "SMSureConnect is the #1 premium dating platform connecting confident partners with verified, successful sugar mommies aged 40-80 in Australia, Singapore, New Zealand, and Canada. Join 5K+ verified members with 94% success rate.",
+    "SMSureConnect is the #1 premium dating platform connecting confident partners with verified, successful sugar mommies aged 40-80 in US, Germany, Australia, Singapore, New Zealand, Canada and Beyond. Join 5K+ verified members with 94% success rate.",
   keywords: [
     "sugar mommy Australia",
+    "sugar mommy US",
+    "sugar mommy Germany",
     "sugar mommy Singapore",
     "sugar mommy New Zealand",
     "sugar mommy Canada",
@@ -30,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "SMSureConnect - Meet Successful Sugar Mommies | Premium Dating",
     description:
-      "Connect with 5K+ verified, accomplished women in Australia, Singapore, New Zealand & Canada. 94% success rate. Premium luxury dating experiences.",
+      "Connect with 5K+ verified, accomplished women in US, Germany, Australia, Singapore, New Zealand & Canada. 94% success rate. Premium luxury dating experiences.",
     images: [
       {
         url: "/home-og-image.jpg",
@@ -213,21 +215,13 @@ export default function LandingPage() {
         <main>
           {/* H1 is in HeroSection - ensure only ONE H1 per page */}
           <HeroSection />
-
           <AboutSection />
-
           <MarqueeSection />
-
           <HowItWorksSection />
-
           <FeaturesSection />
-
           <TestimonialsSection />
-
           <ConciergeSection />
-
           <FAQSection />
-
           <CTASection />
         </main>
 

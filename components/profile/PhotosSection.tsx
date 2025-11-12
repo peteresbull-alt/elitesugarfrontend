@@ -3,7 +3,10 @@
 import { useState } from "react";
 import { Camera, Upload, Loader, X } from "lucide-react";
 import { BACKEND_URL } from "@/lib/constants";
-import { uploadMultipleToCloudinary } from "@/lib/cloudinary";
+import {
+  uploadMultipleToCloudinary,
+  isValidCloudinaryUrl,
+} from "@/lib/cloudinaryv2";
 import { UserProfile } from "@/types/profile";
 
 interface PhotosSectionProps {
@@ -42,17 +45,41 @@ export default function PhotosSection({
     setUploadProgress(0);
 
     try {
-      // Upload to Cloudinary first
+      console.log("Starting photo upload process...");
+
+      // Step 1: Upload to Cloudinary
+      console.log(`Uploading ${files.length} files to Cloudinary...`);
       const photoUrls = await uploadMultipleToCloudinary(
         files,
         "user_photos",
         (progress) => {
+          console.log(`Upload progress: ${progress}%`);
           setUploadProgress(progress);
         }
       );
 
-      // Send URLs to backend
+      console.log("Cloudinary upload complete. URLs:", photoUrls);
+
+      // Step 2: Validate all URLs
+      const invalidUrls = photoUrls.filter((url) => !isValidCloudinaryUrl(url));
+      if (invalidUrls.length > 0) {
+        console.error("Invalid URLs detected:", invalidUrls);
+        throw new Error("Some uploaded files have invalid URLs");
+      }
+
+      console.log("All URLs validated successfully");
+
+      // Step 3: Send URLs to backend
       const token = getAuthToken();
+      if (!token) {
+        throw new Error("No authentication token found");
+      }
+
+      console.log("Sending URLs to backend:", {
+        url: `${BACKEND_URL}/photos/upload/`,
+        photo_urls: photoUrls,
+      });
+
       const response = await fetch(`${BACKEND_URL}/photos/upload/`, {
         method: "POST",
         headers: {
@@ -62,17 +89,39 @@ export default function PhotosSection({
         body: JSON.stringify({ photo_urls: photoUrls }),
       });
 
+      console.log("Backend response status:", response.status);
+
       if (response.ok) {
+        const result = await response.json();
+        console.log("Backend response:", result);
+
         await onPhotosUpdated();
         setSuccess("Photos uploaded successfully!");
         setTimeout(() => setSuccess(""), 3000);
       } else {
-        const result = await response.json();
-        setError(result.error || "Failed to upload photos");
+        const result = await response.json().catch(() => ({
+          error: `Server returned ${response.status}: ${response.statusText}`,
+        }));
+
+        console.error("Backend error:", result);
+
+        // Display specific error messages
+        if (result.photo_urls) {
+          setError(`Invalid URLs: ${JSON.stringify(result.photo_urls)}`);
+        } else if (result.error) {
+          setError(result.error);
+        } else {
+          setError(`Failed to upload photos: ${response.statusText}`);
+        }
       }
     } catch (err) {
       console.error("Upload error:", err);
-      setError("Error uploading photos");
+
+      if (err instanceof Error) {
+        setError(`Error: ${err.message}`);
+      } else {
+        setError("An unexpected error occurred while uploading photos");
+      }
     } finally {
       setUploadingPhotos(false);
       setUploadProgress(0);

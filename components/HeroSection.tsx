@@ -3,7 +3,6 @@
 import { ArrowRight, BadgeCheck, Heart, X } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import Image from "next/image";
 
 const profileCards = [
   {
@@ -137,7 +136,8 @@ export default function HeroSection() {
               style={{ color: "#E94057" }}
               role="status"
             >
-              Premium Dating Platform for Australia, Singapore, NZ & Canada
+              Premium Dating Platform for US, UK, Germany, Australia, Singapore,
+              NZ, Canada and Beyond.
             </div>
 
             {/* ONLY H1 on the page - critical for SEO */}
@@ -152,9 +152,9 @@ export default function HeroSection() {
             {/* Descriptive content for SEO */}
             <p className="text-xl sm:text-2xl md:text-left text-gray-600 leading-relaxed">
               Connect with <strong>verified, successful sugar mommies</strong>{" "}
-              across Australia, Singapore, New Zealand, and Canada. Premium
-              dating platform featuring accomplished women aged 40-80 who are
-              generous, empowered, and seeking genuine connections.
+              across the United States, United Kingdom, Germany, France, Italy,
+              Spain, Switzerland, Netherlands, Canada, Australia, and beyond.
+              Join a premium dating experience where elegance meets connection.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -229,9 +229,12 @@ export default function HeroSection() {
             {/* Regional keywords for SEO */}
             <div className="text-sm text-gray-500 pt-4">
               <p>
-                <strong>Active in:</strong> Sydney, Melbourne, Brisbane
-                (Australia) • Singapore City • Auckland, Wellington (New
-                Zealand) • Toronto, Vancouver, Montreal (Canada)
+                <strong>Active in:</strong> New York, Los Angeles, Miami (USA) •
+                London, Manchester (UK) • Paris (France) • Berlin, Munich
+                (Germany) • Milan, Rome (Italy) • Barcelona, Madrid (Spain) •
+                Zurich, Geneva (Switzerland) • Amsterdam, Rotterdam
+                (Netherlands) • Stockholm, Oslo, Copenhagen (Nordics) • Toronto,
+                Vancouver (Canada) • Sydney, Melbourne (Australia)
               </p>
             </div>
           </article>

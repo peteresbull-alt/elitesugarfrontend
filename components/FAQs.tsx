@@ -7,52 +7,62 @@ const faqs = [
   {
     question: "What is SMSureConnect?",
     answer:
-      "SMSureConnect is a premium dating platform connecting confident partners with verified, successful sugar mommies across Australia, Singapore, New Zealand, and Canada. We feature over 5,000 verified members with rigorous identity and income verification processes.",
+      "SMSureConnect is a premium dating platform connecting discerning men with verified, successful women across the world’s most developed countries. We provide a secure and professional environment for meaningful connections, featuring rigorous identity and income verification to ensure authenticity.",
   },
   {
-    question: "Which countries and cities does SMSureConnect operate in?",
+    question: "Which countries does SMSureConnect operate in?",
     answer:
-      "SMSureConnect primarily serves Australia (Sydney, Melbourne, Brisbane, Perth), Singapore, New Zealand (Auckland, Wellington, Christchurch), and Canada (Toronto, Vancouver, Montreal, Calgary). We have verified members across all major cities in these countries.",
+      "SMSureConnect serves verified members across the United States, Canada, United Kingdom, France, Germany, Italy, Spain, Australia, New Zealand, Singapore, Japan, South Korea, China, and the UAE. Our platform ensures quality connections in all major cities within these countries.",
+  },
+  {
+    question: "Which cities are currently active on SMSureConnect?",
+    answer:
+      "We have active members in New York, Los Angeles, Toronto, Vancouver, London, Paris, Berlin, Rome, Madrid, Sydney, Melbourne, Auckland, Singapore City, Tokyo, Seoul, Beijing, and Dubai. Our network continues to grow, providing opportunities to connect in most first-world urban centers.",
   },
   {
     question: "How are sugar mommy profiles verified on SMSureConnect?",
     answer:
-      "All sugar mommy profiles undergo comprehensive verification including identity verification, income verification, and photo authentication. Our verification process ensures 94% success rate and authentic connections with accomplished women earning $500K+ annually.",
+      "All female profiles undergo comprehensive verification including government-issued identity verification, proof of income, and photo authentication. This process ensures all members are authentic, maintaining a 94% success rate for meaningful, high-quality connections.",
   },
   {
-    question: "What age range of sugar mommies can I meet?",
+    question: "What age range of members can I meet?",
     answer:
-      "SMSureConnect features successful, accomplished women primarily aged 40-80 years. All members must be 18+ to join the platform, and we maintain strict age verification protocols for safety and compliance.",
+      "SMSureConnect features accomplished women primarily aged 40 to 80 years. Male members must be 18+ to join, and all users undergo strict age verification protocols to ensure a safe and professional environment for all parties.",
   },
   {
-    question: "Is SMSureConnect safe and private?",
+    question: "Is SMSureConnect secure and private?",
     answer:
-      "Yes. We prioritize your privacy with bank-level encryption, discreet billing, and optional anonymous browsing. Your personal information is protected under Australian Privacy Act, Singapore PDPA, New Zealand Privacy Act, and Canadian PIPEDA regulations.",
+      "Yes. SMSureConnect prioritizes privacy and security with bank-level encryption, discreet billing, and optional anonymous browsing. All personal information is protected under privacy regulations applicable in the U.S., Canada, UK, EU, Australia, Singapore, Japan, South Korea, China, and UAE.",
   },
   {
     question: "How much does SMSureConnect membership cost?",
     answer:
-      "We offer flexible membership plans starting with free registration. Premium memberships provide access to verified profiles, unlimited messaging, concierge services, and priority matching. Visit our pricing page for current rates.",
+      "Membership starts with free registration, allowing limited access to verified profiles. Premium memberships unlock full platform capabilities including unlimited messaging, priority matching, and concierge support. Pricing details are transparent and available on our website.",
   },
   {
-    question: "What makes SMSureConnect different from other dating sites?",
+    question: "What makes SMSureConnect different from other dating platforms?",
     answer:
-      "Unlike typical dating apps, SMSureConnect exclusively connects you with verified, wealthy sugar mommies who are serious about relationships. We offer curated matching, income verification, white-glove concierge service, and luxury dating experiences.",
+      "SMSureConnect exclusively connects men with verified, accomplished women who are serious about relationships. Unlike general dating apps, we offer curated matchmaking, income verification, and professional support to facilitate secure and meaningful connections.",
   },
   {
-    question: "Can I meet sugar mommies in my city?",
+    question: "Can I meet members outside my country?",
     answer:
-      "Yes! We have active members in Sydney, Melbourne, Brisbane, Perth (Australia), Singapore, Auckland, Wellington (New Zealand), Toronto, Vancouver, Montreal (Canada), and many other cities. Use our location filters to find sugar mommies near you.",
+      "Yes. SMSureConnect supports international connections within the first-world countries we operate in. Our platform allows you to filter matches by location, facilitating safe and verified introductions across borders.",
   },
   {
-    question: "How long does verification take?",
+    question: "How long does profile verification take?",
     answer:
-      "Profile verification typically takes 24-48 hours. We verify identity documents, income statements, and photos to ensure all members are genuine. This thorough process maintains our 94% success rate and premium member quality.",
+      "Profile verification typically takes 24 to 48 hours. Our team verifies identity documents, income statements, and photographs to maintain the authenticity and high-quality standards of our membership base.",
   },
   {
-    question: "What if I'm not satisfied with SMSureConnect?",
+    question: "What if I am not satisfied with SMSureConnect?",
     answer:
-      "We offer a satisfaction guarantee. If you're not finding quality matches, contact our concierge team for personalized assistance. Premium members can cancel anytime, and we provide full transparency on refund policies in our terms of service.",
+      "SMSureConnect offers a satisfaction guarantee. If you are not finding suitable matches, our professional support team is available for guidance. Premium members can cancel their subscription at any time, and our policies provide full transparency on refunds.",
+  },
+  {
+    question: "Does SMSureConnect comply with international regulations?",
+    answer:
+      "Yes. SMSureConnect strictly follows privacy and data protection laws in all countries we operate, including the U.S., Canada, UK, EU, Australia, Singapore, Japan, South Korea, China, and UAE. This ensures all members’ data and interactions remain secure and compliant.",
   },
 ];
 
@@ -97,8 +107,7 @@ export default function FAQSection() {
             Everything You Need to Know
           </h2>
           <p className="text-xl text-gray-600">
-            Common questions about sugar mommy dating in Australia, Singapore,
-            New Zealand & Canada
+            Common questions about premium international sugar mommy matchmaking
           </p>
         </div>
 
@@ -153,42 +162,11 @@ export default function FAQSection() {
           ))}
         </dl>
 
-        {/* Additional SEO-rich content */}
-        <div className="mt-16 p-8 bg-white rounded-2xl shadow-md">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">
-            Still Have Questions About Sugar Mommy Dating?
-          </h3>
-          <p className="text-gray-600 mb-6">
-            Our customer support team is available 24/7 to help you navigate the
-            SMSureConnect platform. Whether you're in Sydney, Singapore,
-            Auckland, or Toronto, we're here to ensure your premium dating
-            experience exceeds expectations.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <a
-              href="https://t.me/Smsureconnect"
-              className="inline-flex items-center justify-center px-8 py-4 text-white text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
-              style={{ backgroundColor: "#E94057" }}
-            >
-              Contact Support
-            </a>
-          </div>
-        </div>
-
-        {/* Regional targeting content */}
-        <div className="mt-12 text-center text-sm text-gray-500">
-          <p>
-            <strong>Serving:</strong> Australia (NSW, VIC, QLD, WA) • Singapore
-            • New Zealand (Auckland, Wellington) • Canada (ON, BC, QC)
-          </p>
-        </div>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
       </div>
-
-      {/* FAQ Schema for Google Rich Results */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
     </section>
   );
 }
