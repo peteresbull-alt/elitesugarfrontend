@@ -106,6 +106,7 @@ export default function PendingApprovalPage() {
             </button>
             <Link
               href="https://t.me/Smsureconnect"
+              target="_blank"
               className="flex-1 px-6 py-4 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
               style={{ backgroundColor: "#E94057" }}
             >
@@ -119,6 +120,7 @@ export default function PendingApprovalPage() {
             Questions? Contact the livechat below or{" "}
             <a
               href="https://t.me/Smsureconnect"
+              target="_blank"
               className="font-semibold hover:underline"
               style={{ color: "#E94057" }}
             >

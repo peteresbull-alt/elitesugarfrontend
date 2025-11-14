@@ -30,17 +30,17 @@ export default function Footer() {
               SMSureConnect
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed max-w-sm">
-              SMSureConnect (Sugar Mommy Sure Connect) is the #1 online dating platform where
-              confident men meet rich, successful sugar mommies and elegant
-              empresses. Connect with generous, powerful women who love to
-              spoil, support, and share real luxury relationships built on trust
-              and attraction.
+              SMSureConnect (Sugar Mommy Sure Connect) is the #1 online dating
+              platform where confident men meet rich, successful sugar mommies
+              and elegant empresses. Connect with generous, powerful women who
+              love to spoil, support, and share real luxury relationships built
+              on trust and attraction.
             </p>
             <div className="flex gap-4">
-              <SocialIcon>
+              <SocialIcon href="https://t.me/Smsureconnect">
                 <FaTelegram className="w-5 h-5" />
               </SocialIcon>
-              <SocialIcon>
+              <SocialIcon href="https://t.me/Smsureconnect">
                 <FaWhatsapp className="w-5 h-5" />
               </SocialIcon>
             </div>
@@ -100,10 +100,11 @@ export default function Footer() {
   );
 }
 
-function SocialIcon({ children }: { children: React.ReactNode }) {
+function SocialIcon({ children, href }: { children: React.ReactNode; href: string }) {
   return (
     <a
-      href="#"
+      href={href}
+      target="_blank"
       className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
     >
       {children}

@@ -394,10 +394,10 @@ export default function ExplorePage() {
                     <Briefcase className="w-4 h-4" />
                     <span>{person.occupation}</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-white/80">
+                  {/* <div className="flex items-center gap-2 text-sm text-white/80">
                     <MapPin className="w-4 h-4" />
                     <span>{person.city_country}</span>
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
@@ -536,7 +536,7 @@ export default function ExplorePage() {
                           {selectedPerson.occupation || "Not specified"}
                         </span>
                       </div>
-                      <div className="flex items-center gap-2 text-gray-600 mb-2">
+                      {/* <div className="flex items-center gap-2 text-gray-600 mb-2">
                         <MapPin className="w-5 h-5" />
                         <span>
                           {selectedPerson.location ||
@@ -544,7 +544,7 @@ export default function ExplorePage() {
                           {selectedPerson.distance &&
                             `• ${selectedPerson.distance}`}
                         </span>
-                      </div>
+                      </div> */}
                       {selectedPerson.education && (
                         <div className="flex items-center gap-2 text-gray-600">
                           <GraduationCap className="w-5 h-5" />
@@ -567,7 +567,7 @@ export default function ExplorePage() {
                         </div>
                       )}
 
-                      {selectedPerson.nationality && (
+                      {/* {selectedPerson.nationality && (
                         <div className="p-3 bg-gray-50 rounded-xl">
                           <div className="flex items-center gap-2 text-gray-600 mb-1">
                             <HomeIcon className="w-4 h-4" />
@@ -579,9 +579,9 @@ export default function ExplorePage() {
                             {selectedPerson.nationality}
                           </p>
                         </div>
-                      )}
+                      )} */}
 
-                      {selectedPerson.place_of_birth && (
+                      {/* {selectedPerson.place_of_birth && (
                         <div className="p-3 bg-gray-50 rounded-xl">
                           <div className="flex items-center gap-2 text-gray-600 mb-1">
                             <MapPin className="w-4 h-4" />
@@ -593,7 +593,7 @@ export default function ExplorePage() {
                             {selectedPerson.place_of_birth}
                           </p>
                         </div>
-                      )}
+                      )} */}
 
                       {selectedPerson.date_of_birth && (
                         <div className="p-3 bg-gray-50 rounded-xl">

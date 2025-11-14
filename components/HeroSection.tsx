@@ -470,12 +470,12 @@ function SwipeableCard({
                   <p className="text-lg opacity-90 mb-2" itemProp="jobTitle">
                     {card.title}
                   </p>
-                  <p
+                  {/* <p
                     className="text-sm opacity-75 flex items-center gap-1"
                     itemProp="address"
                   >
                     📍 {card.location}
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </div>

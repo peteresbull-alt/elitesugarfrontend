@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Navbar() {
   const router = useRouter();
@@ -13,12 +14,14 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div
-            className="text-3xl sm:text-4xl font-bold tracking-tight"
-            style={{ color: "#E94057" }}
-          >
-            SMSureConnect
-          </div>
+          <Link href={"/"}>
+            <div
+              className="text-3xl sm:text-4xl font-bold tracking-tight"
+              style={{ color: "#E94057" }}
+            >
+              SMSureConnect
+            </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
