@@ -440,7 +440,7 @@ export default function ExplorePage() {
           }}
         >
           <div
-            className="bg-white rounded-3xl max-w-4xl w-full max-h-[85vh] lg:max-h-[90vh] overflow-y-auto mb-20 lg:mb-0"
+            className="bg-white rounded-3xl max-w-lg w-full max-h-[85vh] lg:max-h-[90vh] overflow-y-auto mb-20 lg:mb-0"
             onClick={(e) => e.stopPropagation()}
           >
             {(() => {
