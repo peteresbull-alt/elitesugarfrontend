@@ -1,61 +1,64 @@
 "use client";
 
+import { BACKEND_URL } from "@/lib/constants";
 import { BadgeCheck } from "lucide-react";
+import { useState, useEffect } from "react";
+
+interface PersonPhoto {
+  person_image: string;
+  person_name: string;
+  person_age: number;
+  person_occupation: string;
+  person_location: string;
+  person_verified: boolean;
+  person_id: number;
+  is_profile_picture: boolean;
+  person_interests: string[];
+}
 
 export default function MarqueeSection() {
-  const profiles = [
-    {
-      name: "Nancy",
-      age: 46,
-      image:
-        "https://res.cloudinary.com/daf9tr3lf/image/upload/v1762789256/people_photos/yxvqw3d4yfoepdhffpkq.jpg",
-      title: "Pharmaceutical Distributor",
-      verified: true,
-    },
-    {
-      name: "Deborah",
-      age: 52,
-      image:
-        "https://res.cloudinary.com/daf9tr3lf/image/upload/v1762789314/people_photos/zb605gvu2ivro4sz304j.jpg",
-      title: "Global Investor",
-      verified: true,
-    },
-    {
-      name: "Elizabeth",
-      age: 58,
-      image:
-        "https://res.cloudinary.com/daf9tr3lf/image/upload/v1762789401/people_photos/cofvd8f54lb26mzimait.jpg",
-      title: "Bachelor of Hospitality",
-      verified: true,
-    },
-    {
-      name: "Karen",
-      age: 47,
-      image:
-        "https://res.cloudinary.com/daf9tr3lf/image/upload/v1762789460/people_photos/dxid5agvtoxmiutinykq.jpg",
-      title: "Oil Company CEO",
-      verified: true,
-    },
-    {
-      name: "Helen",
-      age: 44,
-      image:
-        "https://res.cloudinary.com/daf9tr3lf/image/upload/v1762789540/people_photos/pfc17g4nax6czqutk89o.jpg",
-      title: "Resort Owner",
-      verified: true,
-    },
-    {
-      name: "Diana",
-      age: 48,
-      image:
-        "https://res.cloudinary.com/daf9tr3lf/image/upload/v1762797446/people_photos/fa9pq8x25gpay7ag21uu.jpg",
-      title: "Philanthropist",
-      verified: true,
-    },
-  ];
+  const [profiles, setProfiles] = useState<PersonPhoto[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchPeople();
+  }, []);
+
+  const fetchPeople = async () => {
+    try {
+      const response = await fetch(`${BACKEND_URL}/people/public/`);
+      const data = await response.json();
+
+      // Get unique people (only profile pictures, limit to 12 for marquee)
+      const uniquePeople = data.results
+        .filter((photo: PersonPhoto) => photo.is_profile_picture)
+        .slice(0, 12);
+
+      setProfiles(data.results);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching people:", error);
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return (
+      <section className="py-20 sm:py-32 overflow-hidden bg-gradient-to-b from-pink-50/30 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+            Meet the Women Who Define Desire
+          </h2>
+          <div className="flex items-center justify-center py-20">
+            <div className="animate-spin rounded-full h-16 w-16 border-4 border-pink-500 border-t-transparent"></div>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
-    <section className="py-20 sm:py-32 overflow-hidden bg-linear-to-b from-pink-50/30 to-white">
+    <section className="py-20 sm:py-32 overflow-hidden bg-gradient-to-b from-pink-50/30 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
         <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
           Meet the Women Who Define Desire
@@ -70,7 +73,10 @@ export default function MarqueeSection() {
         <div className="flex overflow-hidden">
           <div className="flex animate-marquee gap-6">
             {[...profiles, ...profiles].map((profile, index) => (
-              <ProfileCard key={index} profile={profile} />
+              <ProfileCard
+                key={`${profile.person_id}-${index}`}
+                profile={profile}
+              />
             ))}
           </div>
         </div>
@@ -87,7 +93,7 @@ export default function MarqueeSection() {
         }
 
         .animate-marquee {
-          animation: marquee 40s linear infinite;
+          animation: marquee 130s linear infinite;
         }
 
         .animate-marquee:hover {
@@ -98,17 +104,7 @@ export default function MarqueeSection() {
   );
 }
 
-function ProfileCard({
-  profile,
-}: {
-  profile: {
-    name: string;
-    age: number;
-    image: string;
-    title: string;
-    verified: boolean;
-  };
-}) {
+function ProfileCard({ profile }: { profile: PersonPhoto }) {
   return (
     <div className="shrink-0 w-80">
       <div className="relative group cursor-pointer">
@@ -119,13 +115,13 @@ function ProfileCard({
         <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
           <div className="aspect-3/4 relative">
             <img
-              src={profile.image}
-              alt={profile.name}
+              src={profile.person_image}
+              alt={`${profile.person_age}`}
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
 
-            {profile.verified && (
+            {profile.person_verified && (
               <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm rounded-full px-3 py-1.5 flex items-center gap-1.5 shadow-lg">
                 <BadgeCheck className="w-4 h-4" style={{ color: "#E94057" }} />
                 <span className="text-xs font-bold text-gray-700">
@@ -135,19 +131,29 @@ function ProfileCard({
             )}
 
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-              <div className="text-3xl font-bold mb-2">
-                {profile.name}, {profile.age}
-              </div>
+              
+              {/* <div className="text-3xl font-bold mb-2">
+                {profile.person_name.split(" ")[0]}, {profile.person_age}
+              </div> */}
               <div className="text-base opacity-95 font-medium mb-4">
-                {profile.title}
+                {profile.person_occupation}
               </div>
-              <div className="flex gap-2">
-                <div className="px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-xs font-semibold">
-                  SMSureConnect
-                </div>
-                <div className="px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-xs font-semibold">
-                  Verified Luxe
-                </div>
+              <div className="flex gap-2 flex-wrap">
+                {profile.person_interests &&
+                profile.person_interests.length > 0 ? (
+                  profile.person_interests.slice(0, 3).map((interest) => (
+                    <div
+                      key={interest}
+                      className="px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-xs font-semibold"
+                    >
+                      {interest}
+                    </div>
+                  ))
+                ) : (
+                  <div className="px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-xs font-semibold">
+                    {profile.person_location}
+                  </div>
+                )}
               </div>
             </div>
           </div>

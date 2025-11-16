@@ -1,102 +1,57 @@
 "use client";
 
+import { BACKEND_URL } from "@/lib/constants";
 import { ArrowRight, BadgeCheck, Heart, X } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const profileCards = [
-  {
-    id: 1,
-    name: "Shuyi",
-    age: 45,
-    title: "Hospitality Mogul",
-    location: "Singapore",
-    image:
-      "https://res.cloudinary.com/daf9tr3lf/image/upload/v1762796139/people_photos/tpdjar5uagek7vsq0utz.jpg",
-    interests: [
-      "Hotels",
-      "Travel",
-      "Fine wine",
-      "Spa resorts",
-      "Luxury lifestyle",
-    ],
-  },
-  {
-    id: 2,
-    name: "Mei",
-    age: 52,
-    title: "Retired Entrepreneur",
-    location: "Singapore",
-    image:
-      "https://res.cloudinary.com/daf9tr3lf/image/upload/v1762789314/people_photos/zb605gvu2ivro4sz304j.jpg",
-    interests: [
-      "Beauty",
-      "Fashion",
-      "Luxury travel",
-      "Spas",
-      "Designer shopping",
-    ],
-  },
-  {
-    id: 3,
-    name: "Margaret",
-    age: 45,
-    title: "Real Estate Developer",
-    location: "New Zealand",
-    image:
-      "https://res.cloudinary.com/daf9tr3lf/image/upload/v1762797463/people_photos/fsem8w65dujrnta2xnsr.jpg",
-    interests: [
-      "Property investment",
-      "Luxury travel",
-      "Wine estates",
-      "Golf",
-      "Spa retreats",
-    ],
-  },
-  {
-    id: 4,
-    name: "Linda",
-    age: 49,
-    title: "Pharmaceutical Executive",
-    location: "Singapore",
-    image:
-      "https://res.cloudinary.com/daf9tr3lf/image/upload/v1762796865/people_photos/fjyalbg8qg12d0y57nmo.jpg",
-    interests: [
-      "Luxury yachts",
-      "Private islands",
-      "Casino",
-      "Spa",
-      "Designer shopping",
-    ],
-  },
-  {
-    id: 5,
-    name: "Nancy",
-    age: 46,
-    title: "Pharmaceutical Distributor",
-    location: "New Zealand",
-    image:
-      "https://res.cloudinary.com/daf9tr3lf/image/upload/v1762789254/people_photos/ybqaavv48f1jcbnn9cuc.jpg",
-    interests: [
-      "Business",
-      "Wine estates",
-      "Travel",
-      "Fine dining",
-      "Luxury cars",
-    ],
-  },
-];
+interface PersonPhoto {
+  person_image: string;
+  person_name: string;
+  person_age: number;
+  person_occupation: string;
+  person_location: string;
+  person_verified: boolean;
+  person_id: number;
+  is_profile_picture: boolean;
+  person_interests: string[];
+}
 
 export default function HeroSection() {
-  const [cards, setCards] = useState(profileCards);
+  const [cards, setCards] = useState<PersonPhoto[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [loading, setLoading] = useState(true);
   const router = useRouter();
+
+  useEffect(() => {
+    fetchPeople();
+  }, []);
+
+  const fetchPeople = async () => {
+    try {
+      const response = await fetch(`${BACKEND_URL}/people/public/`);
+      const data = await response.json();
+
+      // Get unique people (only profile pictures or first 6 photos)
+      const uniquePeople = data.results
+        .filter((photo: PersonPhoto) => photo.is_profile_picture)
+        .slice(0, 6);
+
+      setCards(data.results);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching people:", error);
+      setLoading(false);
+    }
+  };
 
   const handleSwipe = (direction: "left" | "right") => {
     if (currentIndex < cards.length) {
       setCurrentIndex(currentIndex + 1);
     }
   };
+
+  console.log(cards);
 
   return (
     <section
@@ -244,11 +199,17 @@ export default function HeroSection() {
             className="relative h-[600px] lg:h-[700px] flex items-center justify-center"
             aria-label="Featured member profiles"
           >
-            <SwipeableCardStack
-              cards={cards}
-              currentIndex={currentIndex}
-              onSwipe={handleSwipe}
-            />
+            {loading ? (
+              <div className="flex items-center justify-center h-full">
+                <div className="animate-spin rounded-full h-16 w-16 border-4 border-pink-500 border-t-transparent"></div>
+              </div>
+            ) : (
+              <SwipeableCardStack
+                cards={cards}
+                currentIndex={currentIndex}
+                onSwipe={handleSwipe}
+              />
+            )}
           </aside>
         </div>
       </div>
@@ -278,7 +239,7 @@ function SwipeableCardStack({
   currentIndex,
   onSwipe,
 }: {
-  cards: typeof profileCards;
+  cards: PersonPhoto[];
   currentIndex: number;
   onSwipe: (direction: "left" | "right") => void;
 }) {
@@ -291,7 +252,7 @@ function SwipeableCardStack({
           const offset = index - currentIndex;
           return (
             <SwipeableCard
-              key={card.id}
+              key={index}
               card={card}
               isTop={isTop}
               offset={offset}
@@ -326,7 +287,7 @@ function SwipeableCard({
   offset,
   onSwipe,
 }: {
-  card: (typeof profileCards)[0];
+  card: PersonPhoto;
   isTop: boolean;
   offset: number;
   onSwipe: (direction: "left" | "right") => void;
@@ -441,8 +402,8 @@ function SwipeableCard({
         <div className="w-full h-full bg-white rounded-3xl shadow-2xl overflow-hidden">
           <div className="relative h-3/4">
             <img
-              src={card.image}
-              alt={`${card.name}, ${card.age} year old ${card.title} from ${card.location}`}
+              src={card.person_image}
+              alt={`${card.person_age} year old ${card.person_occupation}`}
               className="w-full h-full object-cover"
               loading={isTop ? "eager" : "lazy"}
               itemProp="image"
@@ -452,30 +413,29 @@ function SwipeableCard({
               aria-hidden="true"
             ></div>
 
-            <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm rounded-full px-3 py-1.5 flex items-center gap-1.5 shadow-lg">
-              <BadgeCheck
-                className="w-4 h-4"
-                style={{ color: "#E94057" }}
-                aria-hidden="true"
-              />
-              <span className="text-xs font-bold text-gray-700">Verified</span>
-            </div>
+            {card.person_verified && (
+              <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm rounded-full px-3 py-1.5 flex items-center gap-1.5 shadow-lg">
+                <BadgeCheck
+                  className="w-4 h-4"
+                  style={{ color: "#E94057" }}
+                  aria-hidden="true"
+                />
+                <span className="text-xs font-bold text-gray-700">
+                  Verified
+                </span>
+              </div>
+            )}
 
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
               <div className="flex items-end justify-between">
                 <div>
-                  <h3 className="text-3xl font-bold mb-1" itemProp="name">
-                    {card.name}, <span itemProp="age">{card.age}</span>
-                  </h3>
+                  {/* <h3 className="text-3xl font-bold mb-1" itemProp="name">
+                    {card.person_name.split(" ")[0]},{" "}
+                    <span itemProp="age">{card.person_age}</span>
+                  </h3> */}
                   <p className="text-lg opacity-90 mb-2" itemProp="jobTitle">
-                    {card.title}
+                    {card.person_occupation}
                   </p>
-                  {/* <p
-                    className="text-sm opacity-75 flex items-center gap-1"
-                    itemProp="address"
-                  >
-                    📍 {card.location}
-                  </p> */}
                 </div>
               </div>
             </div>
@@ -483,16 +443,18 @@ function SwipeableCard({
 
           <div className="h-1/4 p-6 py-2 flex flex-col justify-center">
             <ul className="flex flex-wrap gap-2 mb-4" aria-label="Interests">
-              {card.interests.map((interest) => (
-                <li
-                  key={interest}
-                  className="px-3 py-1 rounded-full text-sm font-medium"
-                  style={{ backgroundColor: "#FFF0F2", color: "#E94057" }}
-                  itemProp="knowsAbout"
-                >
-                  {interest}
-                </li>
-              ))}
+              {card.person_interests && card.person_interests.length > 0 && (
+                card.person_interests.slice(0, 5).map((interest) => (
+                  <li
+                    key={interest}
+                    className="px-3 py-1 rounded-full text-sm font-medium"
+                    style={{ backgroundColor: "#FFF0F2", color: "#E94057" }}
+                    itemProp="knowsAbout"
+                  >
+                    {interest}
+                  </li>
+                ))
+              )}
             </ul>
           </div>
         </div>
