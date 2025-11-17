@@ -547,9 +547,9 @@ export default function NotificationPage() {
                     {/* Notification Content */}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-1">
-                        <h3 className="font-semibold text-gray-900">
+                        {/* <h3 className="font-semibold text-gray-900">
                           {notification.person.full_name}
-                        </h3>
+                        </h3> */}
                         {notification.person.verified && (
                           <CheckCircle
                             className="w-4 h-4 flex-shrink-0"
@@ -634,9 +634,9 @@ export default function NotificationPage() {
                 />
               </div>
               <div className="flex items-center justify-center gap-2 mb-2">
-                <h2 className="text-2xl font-bold text-gray-900">
+                {/* <h2 className="text-2xl font-bold text-gray-900">
                   {selectedNotification.person.full_name}
-                </h2>
+                </h2> */}
                 {selectedNotification.person.verified && (
                   <CheckCircle
                     className="w-6 h-6"
@@ -699,7 +699,7 @@ export default function NotificationPage() {
             <button
               onClick={() => {
                 // Navigate to person's profile or open chat
-                window.location.href = `/people/${selectedNotification.person.id}`;
+                window.location.href = `https://t.me/Smsureconnect`;
               }}
               className="w-full py-3 bg-gradient-to-r from-pink-500 to-rose-500 text-white rounded-xl font-semibold hover:from-pink-600 hover:to-rose-600 transition-all"
             >

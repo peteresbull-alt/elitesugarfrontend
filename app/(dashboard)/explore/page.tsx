@@ -387,9 +387,7 @@ export default function ExplorePage() {
 
                 {/* Profile Info */}
                 <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                  <h3 className="text-lg font-bold mb-1">
-                    {person.first_name}, {person.age}
-                  </h3>
+                  <h3 className="text-lg font-bold mb-1">Age, {person.age}</h3>
                   <div className="flex items-center gap-2 text-sm mb-2">
                     <Briefcase className="w-4 h-4" />
                     <span>{person.occupation}</span>
@@ -527,8 +525,7 @@ export default function ExplorePage() {
                     {/* Basic Info */}
                     <div className="mb-6">
                       <h2 className="text-3xl font-bold text-gray-900 mb-2">
-                        {selectedPerson.first_name} {selectedPerson.last_name},{" "}
-                        {selectedPerson.age}
+                        Age, {selectedPerson.age}
                       </h2>
                       <div className="flex items-center gap-2 text-gray-600 mb-2">
                         <Briefcase className="w-5 h-5" />

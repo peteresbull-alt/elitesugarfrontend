@@ -204,14 +204,7 @@ export default function Sidebar() {
                     style={isActive ? { color: "#E94057" } : {}}
                   />
                   <span className="font-semibold">{item.label}</span>
-                  {item.badge && item.badge > 0 && (
-                    <span
-                      className="ml-auto w-6 h-6 rounded-full text-white text-xs flex items-center justify-center font-bold"
-                      style={{ backgroundColor: "#E94057" }}
-                    >
-                      {item.badge > 99 ? "99+" : item.badge}
-                    </span>
-                  )}
+                 
                 </button>
               );
             })}

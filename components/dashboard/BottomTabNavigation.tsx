@@ -21,7 +21,7 @@ export default function BottomTabNavigation() {
     { id: "explore", label: "Explore", icon: Heart, path: "/explore" },
     {
       id: "notifications",
-      label: "Chat",
+      label: "Notifications",
       icon: MessageCircle,
       path: "/notifications",
     },
