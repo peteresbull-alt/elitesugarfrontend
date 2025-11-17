@@ -203,15 +203,21 @@ export default function DashboardHome() {
           </p>
 
           <div className="flex flex-wrap gap-4">
-            <button className="px-6 py-3 bg-white text-pink-600 rounded-xl font-semibold flex items-center gap-2 hover:shadow-xl transition-all transform hover:scale-105">
+            <Link
+              href={"/explore"}
+              className="px-6 py-3 bg-white text-pink-600 rounded-xl font-semibold flex items-center gap-2 hover:shadow-xl transition-all transform hover:scale-105"
+            >
               <Users className="w-5 h-5" />
               Explore Sugar Matches
               <ChevronRight className="w-4 h-4" />
-            </button>
-            <button className="px-6 py-3 bg-white/20 backdrop-blur-sm text-white rounded-xl font-semibold flex items-center gap-2 hover:bg-white/30 transition-all border border-white/30">
+            </Link>
+            <Link
+              href={"/notifications"}
+              className="px-6 py-3 bg-white/20 backdrop-blur-sm text-white rounded-xl font-semibold flex items-center gap-2 hover:bg-white/30 transition-all border border-white/30"
+            >
               <MessageCircle className="w-5 h-5" />
               View Messages
-            </button>
+            </Link>
           </div>
         </div>
       </div>
