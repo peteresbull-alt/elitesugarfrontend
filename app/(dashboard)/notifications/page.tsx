@@ -578,7 +578,7 @@ export default function NotificationPage() {
                     </div>
 
                     {/* Actions */}
-                    <div className="flex flex-col items-end gap-2 flex-shrink-0">
+                    {/* <div className="flex flex-col items-end gap-2 flex-shrink-0">
                       {!notification.is_read && (
                         <div
                           className="w-3 h-3 rounded-full"
@@ -594,7 +594,7 @@ export default function NotificationPage() {
                       >
                         <Trash2 className="w-4 h-4 text-gray-400 hover:text-red-500" />
                       </button>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               );
@@ -703,7 +703,7 @@ export default function NotificationPage() {
               }}
               className="w-full py-3 bg-gradient-to-r from-pink-500 to-rose-500 text-white rounded-xl font-semibold hover:from-pink-600 hover:to-rose-600 transition-all"
             >
-              View Full Profile
+              Connect
             </button>
 
             {/* Info Message */}
@@ -711,8 +711,8 @@ export default function NotificationPage() {
               <div className="flex items-start gap-3">
                 <ExternalLink className="w-5 h-5 text-gray-500 flex-shrink-0 mt-0.5" />
                 <p className="text-sm text-gray-600">
-                  Visit their full profile to see more details and connect
-                  through social media.
+                  Allow us connect you with this user to see more details about
+                  them and connect with them on social media.
                 </p>
               </div>
             </div>
